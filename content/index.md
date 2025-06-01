@@ -7,11 +7,13 @@ This course provides a comprehensive introduction to the fundamental principles 
 
 By the end of the course, the participants will understand how the ML models are built, how to select the appropriate algorithms for specific problems, and how to assess model performance. In addition, the participants will be equipped with the skills to work on ML projects, from data collection and preparation to model training and evaluation. This knowledge will serve as a valuable stepping stone for those wishing to explore more advanced topics or specialize in areas such as deep learning (DL), natural language processing, or computer vision.
 
-.. prereq::
 
-   - Familiarity with Python basics (loops, functions, lists, dictionaries) and libraries like NumPy, Pandas, and Matplotlib/Seaborn
-   - Understanding vectors, matrices, matrix operations (multiplication, transpose, inverse), and eigenvalues
-   - (Optional but useful): Derivatives, gradients, and optimization (especially for understanding gradient descent)
+:::{prereq}
+- Familiarity with Python basics (loops, functions, lists, dictionaries) and libraries like NumPy, Pandas, and Matplotlib/Seaborn
+- Understanding vectors, matrices, matrix operations (multiplication, transpose, inverse), and eigenvalues
+- (Optional but useful): Derivatives, gradients, and optimization (especially for understanding gradient descent)
+:::
+
 
 
 ```{csv-table}
@@ -22,11 +24,13 @@ By the end of the course, the participants will understand how the ML models are
 ```
 
 
-.. toctree::
-   :maxdepth: 1
-   :caption: The lesson
+```{toctree}
+:caption: The lesson
+:maxdepth: 1
 
-   01-intro-to-ML
+01-intro-to-ML
+```
+
 
 
 ```{toctree}
@@ -38,15 +42,16 @@ guide
 ```
 
 
-.. toctree::
-   :maxdepth: 1
-   :caption: About
+```{toctree}
+:caption: About
+:maxdepth: 1
 
-   All lessons <https://enccs.se/lessons/>
-   ENCCS <https://enccs.se/>
+All lessons <https://enccs.se/lessons/>
+ENCCS <https://enccs.se/>
+```
 
 
-.. _learner-personas:
+(learner-personas)=
 
 ## Who is the course for?
 
