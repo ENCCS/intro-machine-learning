@@ -6,11 +6,13 @@ Introduction to Machine Learning
 
    - What is Machine Learning?
    - What is the relationship between AI, ML, and DL?
+   - Why should we embrance ML at the current stage?
 
 .. objectives::
 
    - Describe a general description of ML
    - Clarify the relationship between AI, ML, and DL
+   - Get familiar with representative real-word applications of ML
 
 
 
@@ -23,6 +25,7 @@ In conventional programming, the programmer explicitly codes the logic (rules) t
 
 .. figure:: img/classic-programming-vs-ML.jpg
    :align: center
+   :scale: 75 %
 
    The difference between conventional programing and machine learning.
 
@@ -39,9 +42,19 @@ Deep Learning (DL) is a specialized subset of ML that uses neural networks with 
 
 .. figure:: img/relationship-AI-ML-DL.png
    :align: center
+   :scale: 75 %
 
 	The relationship between artificial intelligence, machine learning, and deep learning.
 
+
+Why Machine Learning?
+---------------------
+
+ML is transforming how we solve complex problems in the real world by enabling systems to learn directly from data, rather than relying on explicitly programmed rules. In many real-world scenarios, such as medical diagnosis, stock market prediction, or natural language processing, the relationships between inputs and outputs are too complex or dynamic to define manually. ML models can uncover hidden patterns and make accurate predictions or decisions, making them essential tools in fields like healthcare, finance, transportation, and cybersecurity.
+
+Another crucial advantage of ML is its ability to adapt and improve over time as more data becomes available. Unlike traditional rule-based systems that require constant manual updates, ML models can retrain and adjust themselves to new data, trends, or anomalies, ensuring that the system stays relevant and effective. For example, in fraud detection, ML algorithms can evolve as fraud tactics change, providing a stronger defense compared to static rules that may become outdated. This adaptability makes ML particularly powerful in dynamic, real-time environments where traditional programming methods fall short.
+
+In addition, ML empowers the automation of complex tasks that were previously dependent on human expertise and intuition. From voice recognition in virtual assistants to autonomous driving, ML algorithms can process vast amounts of unstructured data such as text, images, and audio, which are traditionally challenging for computers to handle. By enabling machines to "learn" from experience and improve their performance over time, ML not only enhances productivity but also opens new frontiers for innovation across industries, creating smarter systems that can make meaningful contributions to society.
 
 
 
