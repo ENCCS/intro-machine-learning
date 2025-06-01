@@ -57,8 +57,8 @@ Another crucial advantage of ML is its ability to adapt and improve over time as
 In addition, ML empowers the automation of complex tasks that were previously dependent on human expertise and intuition. From voice recognition in virtual assistants to autonomous driving, ML algorithms can process vast amounts of unstructured data such as text, images, and audio, which are traditionally challenging for computers to handle. By enabling machines to "learn" from experience and improve their performance over time, ML not only enhances productivity but also opens new frontiers for innovation across industries, creating smarter systems that can make meaningful contributions to society.
 
 
-ML Applications and Importance
-------------------------------
+ML Applications
+---------------
 
 
 Problems can be solve with ML
@@ -69,7 +69,7 @@ ML is used across a wide range of industries and real-world problems in healthca
 Below are key categories of problems that can be applied using ML.
 
 .. list-table::  
-   :widths: 100 500
+   :widths: 80 470
    :header-rows: 1
 
    * - Application area
@@ -80,7 +80,7 @@ Below are key categories of problems that can be applied using ML.
      - Fraud detection, credit scoring, algorithmic trading
    * - Retail & e-commerce
      - Product recommendations, customer segmentation, demand forecasting
-   * - Transportation and autonomous systems
+   * - Transportation & autonomous systems
      - Self-driving cars, traffic prediction, route optimization
    * - Natural language processing (NLP)
      - Chatbots and virtual assistants, sentiment analysis, language translation
@@ -90,3 +90,14 @@ Below are key categories of problems that can be applied using ML.
      - Facial recognition, object detection, image classification
 
 
+Problems can't be solve with ML
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ML is powerful, but it’s not magic. It’s a tool for finding patterns in data but has no idea what the patterns mean. Therefore it is not a substitute for human reasoning, creativity, or ethical judgment.
+
+Below are key categories of problems that cannot be solved with ML due to inherent limitations, regardless of data or computational advancements.
+
+- Problems with insufficient or poor-quality data: ML relies heavily on data. If data is scarce, noisy, biased, or unrepresentative, models fail to generalize. For example, predicting rare events with limited historical data (*e.g.*, catastrophic asteroid impacts, spread of pandemic) is unreliable.
+- Problems requiring reasoning, understanding, or deep logic. ML models approximate patterns but don't understand them. They lack reasoning and common sense unless explicitly designed (*e.g.*, symbolic AI).
+- Problems that involve subjective judgments or value-based decisions. ML models don't "know" what's right or wrong -- they reflect patterns in the data, including biases.
+- Problems outside of distribution generalization. A model trained on photos of cats can't accurately classify dogs if it never saw dogs. ML models interpolate between known data. They struggle with novel scenarios far outside the training set.
