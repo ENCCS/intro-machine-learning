@@ -42,9 +42,9 @@ Deep Learning (DL) is a specialized subset of ML that uses neural networks with 
 
 .. figure:: img/relationship-AI-ML-DL.png
    :align: center
-   :scale: 75 %
+   :width: 512px
 
-	The relationship between artificial intelligence, machine learning, and deep learning.
+   The relationship between artificial intelligence, machine learning, and deep learning.
 
 
 Why Machine Learning?
@@ -56,5 +56,37 @@ Another crucial advantage of ML is its ability to adapt and improve over time as
 
 In addition, ML empowers the automation of complex tasks that were previously dependent on human expertise and intuition. From voice recognition in virtual assistants to autonomous driving, ML algorithms can process vast amounts of unstructured data such as text, images, and audio, which are traditionally challenging for computers to handle. By enabling machines to "learn" from experience and improve their performance over time, ML not only enhances productivity but also opens new frontiers for innovation across industries, creating smarter systems that can make meaningful contributions to society.
 
+
+ML Applications and Importance
+------------------------------
+
+
+Problems can be solve with ML
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ML is used across a wide range of industries and real-world problems in healthcare, finance, natural language processing, computer vision, transportation, manufacturing industry, retail, and cybersecurity.
+
+Below are key categories of problems that can be applied using ML.
+
+.. list-table::  
+   :widths: 100 500
+   :header-rows: 1
+
+   * - Application area
+     - Example use Cases
+   * - Healthcare
+     - Disease prediction & diagnosis, medical image analysis, drug discovery
+   * - Finance
+     - Fraud detection, credit scoring, algorithmic trading
+   * - Retail & e-commerce
+     - Product recommendations, customer segmentation, demand forecasting
+   * - Transportation and autonomous systems
+     - Self-driving cars, traffic prediction, route optimization
+   * - Natural language processing (NLP)
+     - Chatbots and virtual assistants, sentiment analysis, language translation
+   * - Manufacturing & industry
+     - Predictive maintenance, quality control, supply chain optimization
+   * - Computer Vision
+     - Facial recognition, object detection, image classification
 
 
