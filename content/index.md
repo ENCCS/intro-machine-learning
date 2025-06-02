@@ -29,6 +29,7 @@ By the end of the course, the participants will understand how the ML models are
 :maxdepth: 1
 
 01-intro-to-ML
+02-fundamentals-of-ML
 ```
 
 
