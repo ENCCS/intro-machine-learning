@@ -25,7 +25,7 @@ In conventional programming, the programmer explicitly codes the logic (rules) t
 
 .. figure:: img/classic-programming-vs-ML.jpg
    :align: center
-   :scale: 75 %
+   :scale: 512px
 
    The difference between conventional programing and machine learning.
 
@@ -101,3 +101,20 @@ Below are key categories of problems that cannot be solved with ML due to inhere
 - Problems requiring reasoning, understanding, or deep logic. ML models approximate patterns but don't understand them. They lack reasoning and common sense unless explicitly designed (*e.g.*, symbolic AI).
 - Problems that involve subjective judgments or value-based decisions. ML models don't "know" what's right or wrong -- they reflect patterns in the data, including biases.
 - Problems outside of distribution generalization. A model trained on photos of cats can't accurately classify dogs if it never saw dogs. ML models interpolate between known data. They struggle with novel scenarios far outside the training set.
+
+
+Problems can be, but shouldn't be solved with ML
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There are many problems where ML (or DL) could technically be applied, but shouldn’t be -- either because of the simplicity of the problem or due to ethical, practical, or societal concerns.
+
+- Tasks for modelling well defined systems, where the equations governing them are known and understood.
+- Problems at high-stakes domains with unacceptable error rates: ML can predict outcomes in fields like medical diagnosis or aviation safety, but even small errors can lead to catastrophic consequences. Over-reliance on ML without human oversight risks lives when models fail in edge cases.
+- Privacy-sensitive applications: ML can analyze personal data (*e.g.*, health records, browsing habits) to predict behaviors, but using it for invasive profiling, surveillance, or targeted manipulation (*e.g.*, hyper-personalized propaganda) raises serious privacy and autonomy concerns.
+- Reinforcing harmful social norms: ML can optimize systems like targeted advertising or content recommendation, but doing so can amplify harmful behaviors (*e.g.*, echo chambers, misinformation, or addiction to social media) if not carefully regulated.
+
+
+
+
+
+
