@@ -14,8 +14,8 @@ Fundamentals of Machine Learning
 
 
 
-Types of ML
------------
+Types of Machine Learning
+-------------------------
 
 
 ML can be broadly categorized into three main types depending on how the models learn from input data and the nature of the input data they process.

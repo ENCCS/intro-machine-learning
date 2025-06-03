@@ -57,8 +57,8 @@ Another crucial advantage of ML is its ability to adapt and improve over time as
 In addition, ML empowers the automation of complex tasks that were previously dependent on human expertise and intuition. From voice recognition in virtual assistants to autonomous driving, ML algorithms can process vast amounts of unstructured data such as text, images, and audio, which are traditionally challenging for computers to handle. By enabling machines to "learn" from experience and improve their performance over time, ML not only enhances productivity but also opens new frontiers for innovation across industries, creating smarter systems that can make meaningful contributions to society.
 
 
-ML Applications
----------------
+Machine Learning Applications
+-----------------------------
 
 
 Problems can be solve with ML
