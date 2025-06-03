@@ -21,6 +21,12 @@ In this episode , we will
 
 
 
+Understanding Scientific Data
+-----------------------------
+
+Scientific data refers to any form of data that is collected, observed, measured, or generated as part of scientific research or experimentation. This data is used to support scientific analysis, develop theories, and validate hypotheses. It can come from a wide range of sources, including experiments, simulations, observations, or surveys across various scientific fields.
+
+In general, scientific data can be described ty two terms: types of data and forms of data. They are related but distinct -- types describe the nature of the data, while forms describe the how the data is structured and formatted (and stored, which will be discussed below).
 
 
 
