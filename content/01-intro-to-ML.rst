@@ -69,7 +69,7 @@ ML is used across a wide range of industries and real-world problems in healthca
 Below are key categories of problems that can be applied using ML.
 
 .. list-table::  
-   :widths: 80 470
+   :widths: 80 400
    :header-rows: 1
 
    * - Application area

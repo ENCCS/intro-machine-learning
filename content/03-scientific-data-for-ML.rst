@@ -4,7 +4,7 @@ Scientific Data for Machine Learning
 
 .. questions::
 
-   - why data is super important machine learning?
+   - why data is super important in ML?
 
 
 
@@ -60,6 +60,25 @@ Forms of scientific data refer to how the data is structured or formatted. It fo
 - **Images, videos, and audio** are forms of scientific data that represent information through visual and auditory formats. Images capture static visual information as pixel arrays, videos combine sequential frames to show temporal changes, and audio encodes sound signals as time-series data for analysis.
 - **Graphs and networks** are forms of scientific data that represent relationships between entities as nodes and connections as edges. They are used to model complex systems such as social networks, molecular interactions, and ecological food webs, capturing the structure and connectivity of scientific phenomena.
 
+
+
+Data Storage Format
+-------------------
+
+
+Representative data storage format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When it comes to data storage, there are many types of storage formats used in scientific computing and data analysis. There isn’t one data storage format that works in all cases, so choose a file format that best suits your data.
+
+For tabular data, each column usually has a name and a specific data type while each row is a distinct sample which provides data according to each column (including missing values). The simplest way to save tabular data is using the so-called CSV (comma-separated values) file, which is human-readable and easily shareable. However, it is not the best format to use when working with big (numerical) data.
+
+Gridded data is another very common data type in which numerical data is normally saved in a multi-dimensional grid (array). Common field-agnostic array formats include:
+
+- **Hierarchical Data Format** (HDF5) is a high performance storage format for storing large amounts of data in multiple datasets in a single file. It is especially popular in fields where you need to store big multidimensional arrays such as physical sciences.
+- **Network Common Data Form version 4** (NetCDF4) is a data format built on top of HDF5, but exposes a simpler API with a more standardised structure. NetCDF4 is one of the most used formats for storing large data from big simulations in physical sciences.
+- **Zarr** is a data storage format designed for efficiently storing large, multi-dimensional arrays in a way that supports scalability, chunking, compression, and cloud-readiness.
+- There are more file formats like `feather <https://arrow.apache.org/docs/python/feather.html>`_, `parquet <https://arrow.apache.org/docs/python/parquet.html>`_, `xarray <https://docs.xarray.dev/en/stable/>`_ and `npy <https://numpy.org/doc/stable/reference/routines.io.html>`_ to store arrow tables or data frames.
 
 
 
