@@ -82,3 +82,107 @@ Gridded data is another very common data type in which numerical data is normall
 
 
 
+Overview of data storage format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Below is an overview of common data formats (✅ for *good*, 🟨 for *ok/depends on a case*, and ❌ for *bad*) adapted from Aalto university's `Python for scientific computing <https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/#what-is-a-data-format>`_.
+
+.. list-table::
+   :header-rows: 1
+
+   * - | Name:
+     - | Human
+       | readable:
+     - | Space
+       | efficiency:
+     - | Arbitrary
+       | data:
+     - | Tidy
+       | data:
+     - | Array
+       | data:
+     - | Long term
+       | storage/sharing:
+
+   * - :ref:`Pickle <pickle>`
+     - ❌
+     - 🟨
+     - ✅
+     - 🟨
+     - 🟨
+     - ❌
+
+   * - :ref:`CSV <csv>`
+     - ✅
+     - ❌
+     - ❌
+     - ✅
+     - 🟨
+     - ✅
+
+   * - :ref:`Feather <feather>`
+     - ❌
+     - ✅
+     - ❌
+     - ✅
+     - ❌
+     - ❌
+
+   * - :ref:`Parquet <parquet>`
+     - ❌
+     - ✅
+     - 🟨
+     - ✅
+     - 🟨
+     - ✅
+
+   * - :ref:`npy <npy>`
+     - ❌
+     - 🟨
+     - ❌
+     - ❌
+     - ✅
+     - ❌
+
+   * - :ref:`HDF5 <hdf5>`
+     - ❌
+     - ✅
+     - ❌
+     - ❌
+     - ✅
+     - ✅
+
+   * - :ref:`NetCDF4 <netcdf4>`
+     - ❌
+     - ✅
+     - ❌
+     - ❌
+     - ✅
+     - ✅
+
+   * - :ref:`JSON <json>`
+     - ✅
+     - ❌
+     - 🟨
+     - ❌
+     - ❌
+     - ✅
+
+   * - :ref:`Excel <excel>`
+     - ❌
+     - ❌
+     - ❌
+     - 🟨
+     - ❌
+     - 🟨
+
+   * - :ref:`Graph formats <graph>`
+     - 🟨
+     - 🟨
+     - ❌
+     - ❌
+     - ❌
+     - ✅
+
+
+
