@@ -91,6 +91,17 @@ Here is a graphical representation of ML workflow, and a concise overview of the
 
 
 
+Data collection and preprocessing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In ML, data collection and preprocessing are crucial steps that significantly affect the performance of a model. High-quality, well-processed data leads to better predictions, while poor data can result in unreliable models.
+
+- **Data collection**: Gather the necessary data from various sources (*e.g.*, databases, APIs (twitter, linkedin, *etc.*), or manual collection), and ensure that data is representative and sufficient for the problem.
+- **Data preprocessing**: Clean and prepare data by handling missing values (drop, impute, or predict), removing duplicates or irrelevant data, fixing inconsistencies (*e.g.*, "USA" vs. "United States"), normalizing/scaling features, encoding categorical variables, and addressing outliers, and other data quality issues.
+- **Exploratory data analysis (EDA)**: Analyze data to uncover distributions, correlations, patterns, anomalies, and insights using visualizations and statistical methods. This helps in feature selection and understanding data distribution.
+- **Feature engineering**: Create or select relevant features to improve model performance. This may involve dimensionality reduction (*e.g.*, PCA (principal component analysis)) or creating new features based on domain knowledge.
+- **Data splitting**: Divide the dataset into training, validation, and test sets (*e.g.*, 70-15-15 split) to evaluate model performance and prevent overfitting.
+
 
 
 
