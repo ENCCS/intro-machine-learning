@@ -75,7 +75,16 @@ These techniques expand the capabilities and versatility of machine learning acr
 
 
 
+Machine Learning Workflow
+-------------------------
 
+
+What is a workflow for ML?
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A machine learning workflow is a structured approach for developing, training, evaluating, and deploying machine learning models. It typically involves several key phases, including data collection, preprocessing, model training and evaluation, and finally, deployment to production.
+
+Here is a graphical representation of ML workflow, and a concise overview of the key steps are described below.
 
 
 
