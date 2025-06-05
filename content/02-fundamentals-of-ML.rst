@@ -104,5 +104,9 @@ In ML, data collection and preprocessing are crucial steps that significantly af
 
 
 
+Model selection and training
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Model Selection and Training refer to the process of choosing an appropriate model architecture and training it to learn patterns from data to solve a specific task. It involves selecting the appropriate algorithms (*e.g.*, linear/logistic regression, decision trees, neural networks, Gradient Boosting) based on the problem type, configuring its hyperparameters, and optimizing its parameters using training data to minimize error or maximize performance metrics.
 
 
