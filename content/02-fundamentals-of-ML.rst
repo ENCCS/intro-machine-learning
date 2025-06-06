@@ -110,3 +110,38 @@ Model selection and training
 Model Selection and Training refer to the process of choosing an appropriate model architecture and training it to learn patterns from data to solve a specific task. It involves selecting the appropriate algorithms (*e.g.*, linear/logistic regression, decision trees, neural networks, Gradient Boosting) based on the problem type, configuring its hyperparameters, and optimizing its parameters using training data to minimize error or maximize performance metrics.
 
 
+Model evaluation and assessment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Model evaluation and assessment in machine learning refers to the process of measuring and analyzing a model's performance to determine its effectiveness in solving a specific task. It involves using metrics and techniques to quantify how well the model generalizes to unseen data, identifies patterns, and meets desired objectives, typically using a test dataset separate from the training data.
+
+Below are common evaluation metrics by task types:
+
+.. list-table::  
+   :widths: 100 100
+   :header-rows: 1
+
+   * - Task types 
+     - Evaluation metrics
+   * - Classification
+     - Accuracy, precision, recall, F1-score, ROC-AUC, *etc.*
+   * - Regression
+     - Mean Squared Error (MSE), Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), R-squared, *etc.*
+   * - Clustering
+     - Silhouette score, Davies-Bouldin index, Calinski-Harabasz index.
+   * - Ranking
+     - Mean Reciprocal Rank (MRR), Normalized Discounted Cumulative Gain (NDCG).
+   * - NLP or generative tasks
+     - BLEU, ROUGE, perplexity (often overlaps with deep learning).
+
+Here are representative techniques and processes for the assessment:
+
+- **Train-validation-test split**: Divide data into training (model learning), validation (hyperparameter tuning), and test (final evaluation) sets to prevent overfitting.
+- **Cross-validation**: Use k-fold cross-validation to assess model stability across multiple data subsets.
+- **Confusion matrix**: For classification, visualize true positives, false negatives, etc.
+- **Learning curves**: Plot training *vs.* validation performance to diagnose underfitting or overfitting.
+- **Comparison with baselines**: Comparing model performance against simple baselines (*e.g.*, random guessing, linear models) to ensure meaningful improvement.
+- **Robustness testing**: Evaluate performance under noisy, adversarial, or out-of-distribution data.
+- **Fairness and bias analysis**: Assess model predictions for fairness across groups (*e.g.*, demographics).
+
+
