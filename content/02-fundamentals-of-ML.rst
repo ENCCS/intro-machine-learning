@@ -178,3 +178,17 @@ Here are representative techniques and processes for the assessment:
 - **Fairness and bias analysis**: Assess model predictions for fairness across groups (*e.g.*, demographics).
 
 
+Hyperparameter Tuning
+^^^^^^^^^^^^^^^^^^^^^
+
+Hyperparameter tuning is the process of optimizing the settings (hyperparameters) of a model that are not learned during training but significantly affect its performance. These include parameters like learning rate, number of hidden layers, or batch size, which control the model's behavior and training process.
+
+The goal of this process is to find the best combination of hyperparameters that maximizes performance metrics (*e.g.*, accuracy, precision) on a validation set. 
+
+
+
+
+
+
+
+
