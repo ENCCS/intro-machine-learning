@@ -87,6 +87,19 @@ A machine learning workflow is a structured approach for developing, training, e
 Here is a graphical representation of ML workflow, and a concise overview of the key steps are described below.
 
 
+Problem definition and project setup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Problem Definition** is the first and most critical phase of any ML project. It sets the direction, scope, and goals for the entire project.
+
+- we should understand the problem domain: what is the real-world problem we are trying to solve? are we predicting, classifying, or grouping data? (*e.g.*, predict house prices, detect spam emails, cluster customers)
+- we should determine if ML is the appropriate solution for the problem
+- we then should identify the expected outputs: what will the ML model produce? (*e.g.*, a number, a label, or a probability)
+- we define the type of ML task (*e.g.*, classification and regression tasks for supervised learning, clustering, dimensionality reduction for unsupervised learning, and decision-making tasks for reinforcement learning)
+
+
+
+
 
 
 
