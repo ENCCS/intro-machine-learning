@@ -98,10 +98,30 @@ Problem definition and project setup
 - we define the type of ML task (*e.g.*, classification and regression tasks for supervised learning, clustering, dimensionality reduction for unsupervised learning, and decision-making tasks for reinforcement learning)
 
 
+**Project Setup** is to set up the programming/development environment for the project.
 
+- hardware requirements (CPU, SSD, GPU, cloud platforms, *etc.*)
+- software requirements (programming languages and libraries, ML/DL frameworks, and development tools, IDEs, Git/Docker, *etc.)
+- project structure: organize your project for clarity and scalability
 
+A typical ML project structure looks like this
 
+.. code-block:: console
 
+  ML_Project/
+  ├── data/                 # raw and processed data
+  │   ├── raw/              # original, unprocessed data
+  │   ├── processed/        # cleaned, preprocessed data
+  ├── notebooks/            # jupyter notebooks for EDA & modeling
+  ├── src/                  # source code
+  │   ├── utils/            # utility functions (*e.g.*, metrics, logging)
+  │   ├── preprocessing.py  # data cleaning script  
+  │   └── train.py          # model training script
+  ├── models/               # trained model files (*e.g.*, .pkl, .h5)
+  ├── tests/                # unit and integration tests
+  ├── README.md             # project overview and setup instructions
+  ├── requirements.txt      # project dependencies
+  ├── config.yaml           # configuration file for hyperparameters and paths
 
 
 Data collection and preprocessing
