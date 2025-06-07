@@ -178,7 +178,7 @@ Here are representative techniques and processes for the assessment:
 - **Fairness and bias analysis**: Assess model predictions for fairness across groups (*e.g.*, demographics).
 
 
-Hyperparameter Tuning
+Hyperparameter tuning
 ^^^^^^^^^^^^^^^^^^^^^
 
 Hyperparameter tuning is the process of optimizing the settings (hyperparameters) of a model that are not learned during training but significantly affect its performance. These include parameters like learning rate, number of hidden layers, or batch size, which control the model's behavior and training process.
@@ -186,6 +186,14 @@ Hyperparameter tuning is the process of optimizing the settings (hyperparameters
 The goal of this process is to find the best combination of hyperparameters that maximizes performance metrics (*e.g.*, accuracy, precision) on a validation set. 
 
 
+Model deployment, monitoring, and improvement
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Model deployment, monitoring, and improvement refer to the processes involved in taking a trained machine learning model from development to production, ensuring it performs effectively in real-world applications, and continuously enhancing its performance.
+
+- **Model deployment** indicates an integration of a trained model into a production environment (APIs or cloud platforms) where it can make predictions or decisions on new, unseen data.
+- Once deployed, the model’s performance must be continuously tracked to ensure it remains accurate and reliable over time, which is termed as **model monitoring**.
+- As the models degrade over time, so continuous improvement is necessary. **Model improvement** involves updating or retraining the model to maintain or enhance its performance based on monitoring insights or new data.
 
 
 
