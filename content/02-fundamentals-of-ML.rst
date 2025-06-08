@@ -201,7 +201,7 @@ Machine Learning Libraries
 --------------------------
 
 
-Scikit-Learn
+Scikit-learn
 ^^^^^^^^^^^^
 
 **Scikit-learn** is a widely-used, open-source Python library designed for **classical machine learning**, offering a variety of algorithms and tools for for tasks, such classification, regression, clustering, and dimensionality reduction. It supports supervised learning (*e.g.*, SVM (support vector machine), decision trees, random forests), unsupervised learning (*e.g.*, k-means, PCA (principal component analysis)), and semi-supervised learning, with robust tools for data preprocessing, model evaluation, and hyperparameter tuning via ``GridSearchCV``. Built on NumPy, SciPy, and Matplotlib, it is designed for ease of use, making it ideal for beginners and rapid prototyping. Scikit-Learn excels in handling small to medium-sized datasets and includes utilities for data preprocessing, model evaluation, hyperparameter tuning, and pipeline construction. However, it lacks support for DL and GPU acceleration, limiting its scalability for large datasets or complex neural network tasks.
@@ -211,4 +211,13 @@ Keras
 ^^^^^
 
 **Keras** is a high-level neural networks API that simplifies the process of building and training DL models. Originally an independent library, Keras is now tightly integrated with TensorFlow as its official high-level interface (but also usable standalone), offering an accessible way to experiment with DL without sacrificing performance. Keras provides user-friendly abstractions for layers, models, loss functions, and optimizers, allowing users for quick prototyping of neural networks for tasks like image classification, text generation, and time series forecasting with minimal code. Keras abstracts away much of the complexity of TensorFlow while retaining flexibility, making it ideal for beginners and those who need fast experimentation.
+
+
+TensorFlow
+^^^^^^^^^^
+
+Developed by Google, **TensorFlow** is a powerful open-source library primarily for DL but versatile enough for a broad range of ML tasks. It provides a flexible ecosystem for building complex models, including neural networks for computer vision, natural language processing, and time series analysis. TensorFlow supports distributed computing across CPUs, GPUs, and TPUs, making it suitable for both research and production at scale. Its robust features, such as TensorBoard for visualization, TensorFlow Serving for model deployment, and TensorFlow Lite for mobile inference, make it a comprehensive framework for end-to-end machine learning development. TensorFlow’s high-level Keras API simplifies model building, while its low-level operations provide flexibility for advanced research. TensorFlow is well-suited for tasks like image recognition, natural language processing (NLP), and reinforcement learning, though its complexity can pose a steeper learning curve for beginners compared to alternatives like PyTorch. 
+
+
+
 
