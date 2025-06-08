@@ -197,6 +197,13 @@ Model deployment, monitoring, and improvement refer to the processes involved in
 
 
 
+Machine Learning Libraries
+--------------------------
 
+
+Scikit-Learn
+^^^^^^^^^^^^
+
+**Scikit-learn** is a widely-used, open-source Python library designed for **classical machine learning**, offering a variety of algorithms and tools for for tasks, such classification, regression, clustering, and dimensionality reduction. It supports supervised learning (*e.g.*, SVM (support vector machine), decision trees, random forests), unsupervised learning (*e.g.*, k-means, PCA (principal component analysis)), and semi-supervised learning, with robust tools for data preprocessing, model evaluation, and hyperparameter tuning via ``GridSearchCV``. Built on NumPy, SciPy, and Matplotlib, it is designed for ease of use, making it ideal for beginners and rapid prototyping. Scikit-Learn excels in handling small to medium-sized datasets and includes utilities for data preprocessing, model evaluation, hyperparameter tuning, and pipeline construction. However, it lacks support for DL and GPU acceleration, limiting its scalability for large datasets or complex neural network tasks.
 
 
