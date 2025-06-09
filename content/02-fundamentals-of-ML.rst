@@ -225,4 +225,26 @@ PyTorch
 Developed by Facebook’s AI Research Lab (FAIR), PyTorch is auser-friendly and open-source DL library that has gained significant popularity in academia and industry. Known for its intuitive design and "define-by-run" (eager execution) approach, PyTorch allows developers to build, train, and debug models in a flexible and interactive manner. Its strong support for GPU acceleration and extensive ecosystem-ranging from computer vision (TorchVision) to NLP (TorchText) and audio (TorchAudio) -- make it an excellent choice for cutting-edge DL research and production. Popular in academia and increasingly in industry, PyTorch excels in rapid prototyping and experimentation but is less optimized for production deployment compared to TensorFlow. Its active community and support for GPU acceleration make it a favorite for cutting-edge ML and DL research.
 
 
+XGBoost & LightGBM
+^^^^^^^^^^^^^^^^^^
+
+**XGBoost** (Extreme Gradient Boosting) and **LightGBM** (Light Gradient Boosting Machine) are high-performance gradient boosting libraries that have become go-to solutions for structured data problems, such as tabular datasets. Both libraries implement optimized gradient boosting algorithms that deliver fast training speeds, high accuracy, and scalability to large datasets. XGBoost is known for its robustness and versatility, while LightGBM offers further speed and memory efficiency through histogram-based algorithms and leaf-wise growth strategies. These libraries have become essential tools for data scientists working with structured data, outperforming traditional models in many real-world scenarios.
+
+
+Hugging Face Transformers
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Hugging Face Transformers** is a cutting-edge library that provides access to state-of-the-art pre-trained models for NLP tasks and computer vision, including text classification, translation, summarization, and question answering. The library’s pre-trained models and tokenizers simplify NLP workflows by enabling rapid experimentation with large language models, and in addition, this library supports both TensorFlow and PyTorch backends, integrating with datasets via Hugging Face’s datasets library, and has a vibrant community contributing to its continuous development.
+
+
+
+
+
+
+
+
+
+
+
+
 
