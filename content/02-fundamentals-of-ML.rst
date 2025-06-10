@@ -243,6 +243,15 @@ FastAI
 **FastAI** is a high-level DL library built on PyTorch, designed to make AI accessible to a wider audience by simplifying complex tasks. It provides high-level abstractions and best practices out-of-the-box, allowing users to train powerful models with minimal code and optimal defaults. FastAI is particularly well-known for its transfer learning capabilities, enabling quick adaptation of pre-trained models for tasks like image classification and text generation. With its focus on practical usage, education, and strong community support, FastAI is ideal for beginners and practitioners who want to quickly deploy models without deep theoretical expertise.
 
 
+JAX
+^^^
+
+JAX, developed by Google, combines NumPy-like syntax with automatic differentiation and GPU/TPU acceleration, making it ideal for high-performance ML research. It enables composable function transformations (gradients, JIT compilation) and scales efficiently across hardware. While not as high-level as TensorFlow or PyTorch, JAX is favored for cutting-edge numerical computing, physics simulations, and advanced neural network research where speed and flexibility are crucial.
+
+These libraries cater to different needs: Scikit-learn for classical ML, TensorFlow and PyTorch for DL and scalability, Keras for simplicity, XGBoost for high-performance tabular data tasks, and Hugging Face for transformer-based applications.
+
+The choice of these libraries depends on the task, data type, scalability needs, user expertise, and whether the focus is research, prototyping, or production deployment.
+
 
 
 
