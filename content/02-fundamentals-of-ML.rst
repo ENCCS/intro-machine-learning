@@ -237,6 +237,11 @@ Hugging Face Transformers
 **Hugging Face Transformers** is a cutting-edge library that provides access to state-of-the-art pre-trained models for NLP tasks and computer vision, including text classification, translation, summarization, and question answering. The library’s pre-trained models and tokenizers simplify NLP workflows by enabling rapid experimentation with large language models, and in addition, this library supports both TensorFlow and PyTorch backends, integrating with datasets via Hugging Face’s datasets library, and has a vibrant community contributing to its continuous development.
 
 
+FastAI
+^^^^^^
+
+**FastAI** is a high-level DL library built on PyTorch, designed to make AI accessible to a wider audience by simplifying complex tasks. It provides high-level abstractions and best practices out-of-the-box, allowing users to train powerful models with minimal code and optimal defaults. FastAI is particularly well-known for its transfer learning capabilities, enabling quick adaptation of pre-trained models for tasks like image classification and text generation. With its focus on practical usage, education, and strong community support, FastAI is ideal for beginners and practitioners who want to quickly deploy models without deep theoretical expertise.
+
 
 
 
