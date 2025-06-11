@@ -248,11 +248,43 @@ JAX
 
 JAX, developed by Google, combines NumPy-like syntax with automatic differentiation and GPU/TPU acceleration, making it ideal for high-performance ML research. It enables composable function transformations (gradients, JIT compilation) and scales efficiently across hardware. While not as high-level as TensorFlow or PyTorch, JAX is favored for cutting-edge numerical computing, physics simulations, and advanced neural network research where speed and flexibility are crucial.
 
-These libraries cater to different needs: Scikit-learn for classical ML, TensorFlow and PyTorch for DL and scalability, Keras for simplicity, XGBoost for high-performance tabular data tasks, and Hugging Face for transformer-based applications.
-
-The choice of these libraries depends on the task, data type, scalability needs, user expertise, and whether the focus is research, prototyping, or production deployment.
 
 
+These libraries cater to different needs: Scikit-learn for classical ML, TensorFlow and PyTorch for DL and scalability, Keras for simplicity, XGBoost for high-performance tabular data tasks, and Hugging Face for transformer-based applications. The choice of these libraries depends on the task, data type, scalability needs, user expertise, and whether the focus is research, prototyping, or production deployment.
+
+A summary of best features and key strengths of these libraries are summarized below.
+
+.. list-table::  
+   :widths: 100 100
+   :header-rows: 1
+
+   * - Library
+     - Best Feature
+   - Key Strength
+   * - Scikit-Learn
+     - Simple and consistent API for classical ML tasks (classification, regression, clustering) and small/medium datasets.
+   - Seamless integration with NumPy/Pandas and extensive documentation for ease-of-use with wide algorithm support
+   * - PyTorch
+     - Dynamic computation graph (define-by-run) for flexible model building and debugging
+   - Flexible, intuitive framework with strong adoption for academic research in DL tasks
+   * - TensorFlow
+     - Scalability with GPU/TPU acceleration for complex deep learning models
+   - Excellent ecosystem (Keras, TF Hub, TF-Agents) for production-scale applications
+   * - Keras
+     - High-level, user-friendly API for rapid prototyping
+   - Simplifies construction of DL models, making it beginner-friendly and efficient with TensorFlow compatibility for quick model development
+   * - XGBoost & LightGBM
+     - Optimized gradient boosting algorithms
+   - Extremely effective for high-performance supervised learning with tabular/structured data
+   * - Hugging Face Transformers
+     - Extensive pretrained transformer models for easy fine-tuning
+   - Community-driven ecosystem with user-friendly pipelines for NLP and vision tasks 
+   * - FastAI
+     - Transfer learning made easy for NLP & vision tasks
+   - Fast prototyping with minimal code and strong performance for applied deep learning
+   * - JAX
+     - NumPy + autodiff + GPU/TPU acceleration
+   - Cutting-edge numerical computing, works with PyTorch/TensorFlow via interoperability libraries, but offers lower-level control
 
 
 
