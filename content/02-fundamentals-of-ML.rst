@@ -254,37 +254,38 @@ These libraries cater to different needs: Scikit-learn for classical ML, TensorF
 
 A summary of best features and key strengths of these libraries are summarized below.
 
+
 .. list-table::  
-   :widths: 100 100
+   :widths: 50 400
    :header-rows: 1
 
    * - Library
      - Best Feature
-   - Key Strength
+     - Key Strength
    * - Scikit-Learn
      - Simple and consistent API for classical ML tasks (classification, regression, clustering) and small/medium datasets.
-   - Seamless integration with NumPy/Pandas and extensive documentation for ease-of-use with wide algorithm support
+     - Seamless integration with NumPy/Pandas and extensive documentation for ease-of-use with wide algorithm support
    * - PyTorch
      - Dynamic computation graph (define-by-run) for flexible model building and debugging
-   - Flexible, intuitive framework with strong adoption for academic research in DL tasks
+     - Flexible, intuitive framework with strong adoption for academic research in DL tasks
    * - TensorFlow
      - Scalability with GPU/TPU acceleration for complex deep learning models
-   - Excellent ecosystem (Keras, TF Hub, TF-Agents) for production-scale applications
+     - Excellent ecosystem (Keras, TF Hub, TF-Agents) for production-scale applications
    * - Keras
      - High-level, user-friendly API for rapid prototyping
-   - Simplifies construction of DL models, making it beginner-friendly and efficient with TensorFlow compatibility for quick model development
+     - Simplifies construction of DL models, making it beginner-friendly and efficient with TensorFlow compatibility for quick model development
    * - XGBoost & LightGBM
      - Optimized gradient boosting algorithms
-   - Extremely effective for high-performance supervised learning with tabular/structured data
+     - Extremely effective for high-performance supervised learning with tabular/structured data
    * - Hugging Face Transformers
      - Extensive pretrained transformer models for easy fine-tuning
-   - Community-driven ecosystem with user-friendly pipelines for NLP and vision tasks 
+     - Community-driven ecosystem with user-friendly pipelines for NLP and vision tasks 
    * - FastAI
      - Transfer learning made easy for NLP & vision tasks
-   - Fast prototyping with minimal code and strong performance for applied deep learning
+     - Fast prototyping with minimal code and strong performance for applied deep learning
    * - JAX
      - NumPy + autodiff + GPU/TPU acceleration
-   - Cutting-edge numerical computing, works with PyTorch/TensorFlow via interoperability libraries, but offers lower-level control
+     - Cutting-edge numerical computing, works with PyTorch/TensorFlow via interoperability libraries, but offers lower-level control
 
 
 
