@@ -260,8 +260,7 @@ A summary of best features and key strengths of these libraries are summarized b
 
 .. csv-table::
    :header-rows: 1
-   :class: longtable
-   :widths: 15 40 40
+   :widths: 20, 40, 40
 
    **Library**; **Best Feature**; **Key Strength**  
    **Scikit-Learn**; Simple and consistent API for classical ML tasks (classification, regression, clustering) and small/medium datasets; Seamless integration with NumPy/Pandas and extensive documentation for ease-of-use with wide algorithm support
@@ -272,7 +271,7 @@ A summary of best features and key strengths of these libraries are summarized b
 
 .. list-table::
    :header-rows: 1
-   :widths: 15 40 40
+   :widths: 20 40 40
    :class: longtable
 
    * - Library
@@ -309,7 +308,7 @@ A summary of best features and key strengths of these libraries are summarized b
 
 
 .. list-table::
-     :widths: 5 22 73
+     :widths: 20, 40, 40
      :header-rows: 1
 
      * - #
@@ -326,7 +325,7 @@ A summary of best features and key strengths of these libraries are summarized b
 
 
 .. table::
-   :widths: 25 80
+   :widths: 15 85
 
    =======================================   ================================================================
    Selection Method                          Description
@@ -344,7 +343,7 @@ A summary of best features and key strengths of these libraries are summarized b
 
 
 .. table::
-   :widths: 10 20 40
+   :widths: 10 20 70
 
    ==  ====================  ============
    #   Name                  Description
@@ -355,7 +354,7 @@ A summary of best features and key strengths of these libraries are summarized b
 
 
 .. table::
-   :widths: 30 15 60
+   :widths: 30 10 60
 
    ================================  =============  ===========
    Setting                           Default        Description
