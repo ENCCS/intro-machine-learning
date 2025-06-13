@@ -311,9 +311,9 @@ A summary of best features and key strengths of these libraries are summarized b
      ==  ==================  ============
      #   Name                Description
      ==  ==================  ============
-     1   Main Toolbar        Contains buttons to open, save, and export your video project.
-     2   Function Tabs       Switch between Project Files, Transitions, and Effects.
-     3   Project Files       All audio, video, and image files that have been imported into
+     1   Main Toolbar Contains buttons to open        Contains buttons to open, save, and export your video project Contains buttons to open
+     2   Function Tabs Contains buttons to open       Switch between Project Files, Transitions, and Effects Contains buttons to open
+     3   Project Files Contains buttons to open       All audio, video, and image files that have been imported into Contains buttons to open Contains buttons to open
      ==  ==================  ============
 
 
@@ -325,11 +325,11 @@ A summary of best features and key strengths of these libraries are summarized b
        - Name
        - Description
      * - 1
-       - Main Toolbar
-       - Contains buttons to open, save, and export your video project.
+       - Main Toolbar Contains buttons to open, save, and export your video project
+       - Contains buttons to open, save, and export your video project Contains buttons to open, save, and export your video project
      * - 2
-       - Function Tabs
-       - Switch between Project Files, Transitions, and Effects.
+       - Function Tabs Contains buttons to open, save, and export your video project
+       - Switch between Project Files, Transitions, and Effects Contains buttons to open, save, and export your video project
 
 
 
