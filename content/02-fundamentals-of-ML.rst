@@ -256,10 +256,25 @@ These libraries cater to different needs: Scikit-learn for classical ML, TensorF
 A summary of best features and key strengths of these libraries are summarized below.
 
 
+
+.. table::
+     :widths: 15 40 40
+     
+     ===========    ================    ================
+     #              Name                Description
+     ===========    ================    ================
+     **Library**    **Best Feature**    **Key Strength**
+     **Scikit-Learn**    Simple and consistent API for classical ML tasks (classification, regression, clustering) and small/medium datasets    Seamless integration with NumPy/Pandas and extensive documentation for ease-of-use with wide algorithm support
+	 **PyTorch**    Dynamic computation graph (define-by-run) for flexible model building and debugging    Flexible, intuitive framework with strong adoption for academic research in DL tasks
+     ===========    ================    ================
+
+
+
+
 .. csv-table::
    :header-rows: 1
    :class: longtable
-   :widths: 20 40 40
+   :widths: 15 40 40
 
    **Library**; **Best Feature**; **Key Strength**  
    **Scikit-Learn**; Simple and consistent API for classical ML tasks (classification, regression, clustering) and small/medium datasets; Seamless integration with NumPy/Pandas and extensive documentation for ease-of-use with wide algorithm support
@@ -270,7 +285,7 @@ A summary of best features and key strengths of these libraries are summarized b
 
 .. list-table::
    :header-rows: 1
-   :widths: 30 40 40
+   :widths: 15 40 40
    :class: longtable
 
    * - Library
