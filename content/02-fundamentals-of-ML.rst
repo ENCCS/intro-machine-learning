@@ -256,9 +256,6 @@ These libraries cater to different needs: Scikit-learn for classical ML, TensorF
 A summary of best features and key strengths of these libraries are summarized below.
 
 
-
-
-
 .. list-table::
    :header-rows: 1
    :widths: 20 40 40
@@ -297,105 +294,8 @@ A summary of best features and key strengths of these libraries are summarized b
 
 
 
-.. list-table::
-     :widths: 20, 40, 40
-     :header-rows: 1
-
-     * - #
-       - Name
-       - Description
-     * - 1
-       - Main Toolbar Contains buttons to open, save, and export your video project
-       - Contains buttons to open, save, and export your video project Contains buttons to open, save, and export your video project
-     * - 2
-       - Function Tabs Contains buttons to open, save, and export your video project
-       - Switch between Project Files, Transitions, and Effects Contains buttons to open, save, and export your video project
 
 
-
-
-.. table::
-   :widths: 15 85
-
-   =======================================   ================================================================
-   Selection Method                          Description
-   =======================================   ================================================================
-   **Box Selection**                         Click and drag a selection box around clips or transitions to select multiple items at once. Hold down :kbd:`Ctrl` to add to your current selection.
-   **Click Selection**                       Click on a clip or transition to select it. This will deselect all other items unless you hold down :kbd:`Ctrl`.
-   **Add to Selection**                      Hold down :kbd:`Ctrl` while clicking to add or remove clips from the current selection, allowing you to select non-adjacent clips.
-   **Range Selection**                       Hold down :kbd:`Shift` while clicking to select a range of clips/transitions from the previous selection to the new selection. This supports ranges that span multiple tracks as well.
-   **Ripple Selection**                      Hold down :kbd:`Alt` while clicking to ripple select all clips/transitions from your selection to the end of the track. This always adds to your current selection, even if :kbd:`Ctrl` is not pressed.
-   **Clear Selection**                       Click anywhere on the timeline or on a new clip/transition to reset the current selection, unless :kbd:`Ctrl` is pressed.
-   **Select All**                            Press :kbd:`Ctrl+A` to select all clips and transitions on the timeline.
-   **Select None**                           Press :kbd:`Ctrl+Shift+A` to deselect all clips and transitions on the timeline.
-   =======================================   ================================================================
-
-
-
-.. table::
-   :widths: 10 20 70
-
-   ==  ====================  ============
-   #   Name                  Description
-   ==  ====================  ============
-   1   File Properties       Select an image sequence in the **Project Files** panel, right click and choose **File Properties**
-   2   Frame Rate            Adjust the frame rate of the animation. Typically, hand-drawn animations use 12 frames per second.
-   ==  ====================  ============
-
-
-.. table::
-   :widths: 30 10 60
-
-   ================================  =============  ===========
-   Setting                           Default        Description
-   ================================  =============  ===========
-   Language                          Default        Choose your preferred language for OpenShot menus and windows  
-   Default Theme                     Humanity:Dark  Choose your theme for OpenShot, either Light, Dark or None
-   Image Length (seconds)            10.00          How long the image displays on the screen when added to the timeline
-   Volume                            75.00          The percentage of the volume of the clip when added to the timeline
-   Blender Command (path)            *<blank>*      The path to the binary for Blender (version 4.1+)
-   Advanced Title Editor (path)      *<blank>*      The path to the binary for Inkscape
-   Show Export Dialog when Finished  *<checked>*    Displays the Export Video windows after the export is finished
-   ================================  =============  ===========
-
-
-
-
-.. table::
-   :widths: 20 40 40
-
-   ================  ===================================================================================================================  ============
-   Library           Best Feature                                                                                                         Key Strength
-   ================  ===================================================================================================================  ============
-   Language          Default                                                                                                              Choose your preferred language for OpenShot menus and windows  
-   Scikit-Learn      Simple and consistent API for classical ML tasks (classification, regression, clustering) and small/medium datasets  Seamless integration with NumPy/Pandas and extensive documentation for ease-of-use with wide algorithm support
-   PyTorch           Dynamic computation graph (define-by-run) for flexible model building and debugging                                  Flexible, intuitive framework with strong adoption for academic research in DL tasks
-   ================  ===================================================================================================================  ============
-
-
-
-.. list-table::
-
-   * - a short sentence
-     - second cell
-   * - A "much" longer
-       sentence.
-       
-       A table cell may also contain more than one paragraph.
-       
-     - bottom right 
-
-
-
-
-+--------------+---------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-| Library      | Best Feature                                                                                                        | Key Strength                                                                                                   |
-+==============+=====================================================================================================================+================================================================================================================+
-| row 1A       | row 1B                                                                                                              | row 1C                                                                                                         |
-+--------------+---------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-| Scikit-Learn | Simple and consistent API for classical ML tasks (classification, regression, clustering) and small/medium datasets | Seamless integration with NumPy/Pandas and extensive documentation for ease-of-use with wide algorithm support |
-| PyTorch      | Dynamic computation graph (define-by-run) for flexible model building and debugging                                 | Flexible, intuitive framework with strong adoption for academic research in DL tasks                           |
-+--------------+---------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 
 
 
