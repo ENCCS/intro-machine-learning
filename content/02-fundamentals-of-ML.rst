@@ -258,16 +258,6 @@ A summary of best features and key strengths of these libraries are summarized b
 
 
 
-.. csv-table::
-   :header-rows: 1
-   :widths: 20, 40, 40
-
-   **Library**; **Best Feature**; **Key Strength**  
-   **Scikit-Learn**; Simple and consistent API for classical ML tasks (classification, regression, clustering) and small/medium datasets; Seamless integration with NumPy/Pandas and extensive documentation for ease-of-use with wide algorithm support
-   **PyTorch**; Dynamic computation graph (define-by-run) for flexible model building and debugging; Flexible, intuitive framework with strong adoption for academic research in DL tasks
-
-
-
 
 .. list-table::
    :header-rows: 1
@@ -381,6 +371,31 @@ A summary of best features and key strengths of these libraries are summarized b
    Scikit-Learn      Simple and consistent API for classical ML tasks (classification, regression, clustering) and small/medium datasets  Seamless integration with NumPy/Pandas and extensive documentation for ease-of-use with wide algorithm support
    PyTorch           Dynamic computation graph (define-by-run) for flexible model building and debugging                                  Flexible, intuitive framework with strong adoption for academic research in DL tasks
    ================  ===================================================================================================================  ============
+
+
+
+.. list-table::
+
+   * - a short sentence
+     - second cell
+   * - A "much" longer
+       sentence.
+       
+       A table cell may also contain more than one paragraph.
+       
+     - bottom right 
+
+
+
+
++--------------+---------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| Library      | Best Feature                                                                                                        | Key Strength                                                                                                   |
++==============+=====================================================================================================================+================================================================================================================+
+| row 1A       | row 1B                                                                                                              | row 1C                                                                                                         |
++--------------+---------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| Scikit-Learn | Simple and consistent API for classical ML tasks (classification, regression, clustering) and small/medium datasets | Seamless integration with NumPy/Pandas and extensive documentation for ease-of-use with wide algorithm support |
+| PyTorch      | Dynamic computation graph (define-by-run) for flexible model building and debugging                                 | Flexible, intuitive framework with strong adoption for academic research in DL tasks                           |
++--------------+---------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 
 
 
