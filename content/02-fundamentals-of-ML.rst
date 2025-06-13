@@ -257,19 +257,6 @@ A summary of best features and key strengths of these libraries are summarized b
 
 
 
-.. table::
-     :widths: 15 40 40
-     
-     ===========    ================    ================
-     #              Name                Description
-     ===========    ================    ================
-     **Library**    **Best Feature**    **Key Strength**
-     **Scikit-Learn**    Simple and consistent API for classical ML tasks (classification, regression, clustering) and small/medium datasets    Seamless integration with NumPy/Pandas and extensive documentation for ease-of-use with wide algorithm support
-	 **PyTorch**    Dynamic computation graph (define-by-run) for flexible model building and debugging    Flexible, intuitive framework with strong adoption for academic research in DL tasks
-     ===========    ================    ================
-
-
-
 
 .. csv-table::
    :header-rows: 1
@@ -318,9 +305,31 @@ A summary of best features and key strengths of these libraries are summarized b
 
 
 
+.. table::
+     :widths: 5 22 73
+     
+     ==  ==================  ============
+     #   Name                Description
+     ==  ==================  ============
+     1   Main Toolbar        Contains buttons to open, save, and export your video project.
+     2   Function Tabs       Switch between Project Files, Transitions, and Effects.
+     3   Project Files       All audio, video, and image files that have been imported into
+     ==  ==================  ============
 
 
+.. list-table::
+     :widths: 5 22 73
+     :header-rows: 1
 
+     * - #
+       - Name
+       - Description
+     * - 1
+       - Main Toolbar
+       - Contains buttons to open, save, and export your video project.
+     * - 2
+       - Function Tabs
+       - Switch between Project Files, Transitions, and Effects.
 
 
 
