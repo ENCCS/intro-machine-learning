@@ -150,9 +150,10 @@ Model evaluation and assessment in machine learning refers to the process of mea
 
 Below are common evaluation metrics by task types:
 
-.. list-table::  
+.. list-table:: 
+   :header-rows: 1 
    :widths: 40 60
-   :header-rows: 1
+   :class: longtable
 
    * - Task types 
      - Evaluation metrics
@@ -255,9 +256,10 @@ These libraries cater to different needs: Scikit-learn for classical ML, TensorF
 A summary of best features and key strengths of these libraries are summarized below.
 
 
-.. list-table::  
-   :widths: 30 40 40
+.. list-table::
    :header-rows: 1
+   :widths: 30 40 40
+   :class: longtable
 
    * - Library
      - Best Feature
