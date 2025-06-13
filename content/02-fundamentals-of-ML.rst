@@ -344,7 +344,7 @@ A summary of best features and key strengths of these libraries are summarized b
 
 
 .. table::
-   :widths: 5 20 80
+   :widths: 10 20 40
 
    ==  ====================  ============
    #   Name                  Description
@@ -375,13 +375,13 @@ A summary of best features and key strengths of these libraries are summarized b
 .. table::
    :widths: 20 40 40
 
-   ================  =============  ============
-   Library           Best Feature   Key Strength
-   ================  =============  ============
-   Language          Default        Choose your preferred language for OpenShot menus and windows  
+   ================  ===================================================================================================================  ============
+   Library           Best Feature                                                                                                         Key Strength
+   ================  ===================================================================================================================  ============
+   Language          Default                                                                                                              Choose your preferred language for OpenShot menus and windows  
    Scikit-Learn      Simple and consistent API for classical ML tasks (classification, regression, clustering) and small/medium datasets  Seamless integration with NumPy/Pandas and extensive documentation for ease-of-use with wide algorithm support
    PyTorch           Dynamic computation graph (define-by-run) for flexible model building and debugging                                  Flexible, intuitive framework with strong adoption for academic research in DL tasks
-   ================  =============  ============
+   ================  ===================================================================================================================  ============
 
 
 
