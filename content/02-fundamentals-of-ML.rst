@@ -151,7 +151,7 @@ Model evaluation and assessment in machine learning refers to the process of mea
 Below are common evaluation metrics by task types:
 
 .. list-table::  
-   :widths: 100 100
+   :widths: 40 60
    :header-rows: 1
 
    * - Task types 
@@ -256,7 +256,7 @@ A summary of best features and key strengths of these libraries are summarized b
 
 
 .. list-table::  
-   :widths: 50 400
+   :widths: 30 40 40
    :header-rows: 1
 
    * - Library
