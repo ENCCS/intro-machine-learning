@@ -257,8 +257,9 @@ A summary of best features and key strengths of these libraries are summarized b
 
 
 .. csv-table::
-   :widths: auto
-   :delim: ;
+   :header-rows: 1
+   :class: longtable
+   :widths: 20 40 40
 
    **Library**; **Best Feature**; **Key Strength**  
    **Scikit-Learn**; Simple and consistent API for classical ML tasks (classification, regression, clustering) and small/medium datasets; Seamless integration with NumPy/Pandas and extensive documentation for ease-of-use with wide algorithm support
