@@ -185,4 +185,37 @@ Below is an overview of common data formats (✅ for *good*, 🟨 for *ok/depend
      - ✅
 
 
+Data Structures for ML/DL
+-------------------------
+
+
+ML (and DL) models require numerical input, so we must collect adaquate numerical data before training.
+For ML tasks, multimedia data like image, audio, or video formats should be converted into tabular data or numerical arrays that ML models can process.
+This conversion enables models to extract meaningful features, such as pixel intensities, audio frequencies or motion patterns, for tasks like classification or prediction.
+
+
+Numerical array 
+^^^^^^^^^^^^^^^
+
+Numerical array is a collection of numbers arranged in a specific structure that one can perform mathematical operations on. Examples of numerical arrays are scalar (0D), row or column vector (1D), matrix (2D), and tensor (3D), *etc.*
+
+Python offers powerful libraries like NumPy, PyTorch, TensorFlow, and Dask (parallel Numpy) to work with numerical arrays (0D to *n*D).
+
+```
+import numpy as np
+
+# 0D (Scalar)
+scalar = np.array(5)  
+
+# 1D (Vector)
+vector = np.array([1, 2, 3])  
+
+# 2D (Matrix)
+matrix_2D = np.array([[1, 2], [3, 4]])  
+
+# 3D (Matrix)
+matrix_3D = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+print(matrix_3D.shape)
+```
+
 
