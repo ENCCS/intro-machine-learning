@@ -201,21 +201,36 @@ Numerical array is a collection of numbers arranged in a specific structure that
 
 Python offers powerful libraries like NumPy, PyTorch, TensorFlow, and Dask (parallel Numpy) to work with numerical arrays (0D to *n*D).
 
-```
-import numpy as np
+.. code-block:: python
 
-# 0D (Scalar)
-scalar = np.array(5)  
+   import numpy as np
 
-# 1D (Vector)
-vector = np.array([1, 2, 3])  
+   # 0D (Scalar)
+   scalar = np.array(5)  
 
-# 2D (Matrix)
-matrix_2D = np.array([[1, 2], [3, 4]])  
+   # 1D (Vector)
+   vector = np.array([1, 2, 3])  
 
-# 3D (Matrix)
-matrix_3D = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
-print(matrix_3D.shape)
-```
+   # 2D (Matrix)
+   matrix_2D = np.array([[1, 2], [3, 4]])  
+
+   # 3D (Matrix)
+   matrix_3D = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+   print(matrix_3D.shape)
+
+
+Tensor
+^^^^^^
+
+In ML and DL, a tensor is a mathematical object used to represent and manipulate multidimensional data. It generalizes scalars, vectors, and matrices to higher dimensions, serving as the fundamental data structure in frameworks like TensorFlow and PyTorch.
+
+Why to use tensors in ML/DL (advantages of Tensor)?
+
+- Generalization of scalars/vectors/matrices: Tensors extend these concepts to any number of dimensions, which is essential for handling complex data like images (3D) and videos (4D+).
+- Consistency: Tensors unify data structures across ML/DL frameworks, simplifying model building, training, and deployment.
+- Efficient computation: Frameworks like TensorFlow and PyTorch optimize tensor operations for speed (using GPUs/TPUs).
+- Neural network representations: Input data (images, text) is converted to tensors.
+- Automatic differentiation: Tensors support gradient tracking, which is vital for backpropagation in neural networks.
+
 
 
