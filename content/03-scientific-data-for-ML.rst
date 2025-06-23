@@ -233,4 +233,22 @@ Why to use tensors in ML/DL (advantages of Tensor)?
 - Automatic differentiation: Tensors support gradient tracking, which is vital for backpropagation in neural networks.
 
 
+`HERE <>`_ we provide a tutorial about Tensor including
+
+- Tensor creation
+- Tensor's properties (`shape`, `dtype`, `ndim`)
+- Tensor operations
+
+   - indexing, slicing, transposing
+   - element-wise operations: addition, subtraction, *etc.*
+   - matrix multiplication(`np.dot`, `torch.matmul`)
+   - reshaping, flattening, squeezing, unsqueezing
+   - reduction operations: sum, mean, max along axes
+   - broadcasting: Rules and examples
+
+- Tensors in DL frameworks
+
+   - moving tensors between CPUs and GPUs (suppose that you can access to GPU cards)
+
+
 
