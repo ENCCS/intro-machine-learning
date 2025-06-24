@@ -262,4 +262,17 @@ Data preprocessing refers to steps taken to integrate, clean, transform, and org
 `HERE <>`_ we provide a tutorial addressing representative steps for preprocessing data in `penguins datasets <https://inria.github.io/scikit-learn-mooc/python_scripts/trees_dataset.html>`_ using Python libraries like `numpy`, `pandas`, `matplotlib`, `seaborn`, and `scikit-learn`.
 
 
+Feature Engineering
+-------------------
 
+
+Feature engineering is a part of the broader data processing pipeline in ML workflows. It involves using domain knowledge to select, modify, or create new features -- variables or attributes -- from existing data to help algorithms better understand patterns and relationships.
+
+Feature engineering is crucial because the quality of features directly impacts a model's predictive power. Well-crafted features can simplify complex patterns, reduce overfitting, and improve model interpretability, leading to better generalization and performance on unseen data. By tailoring features to the problem at hand, feature engineering bridges the gap between raw data and actionable insights, often making the difference between a mediocre and a high-performing model.
+
+Feature engineering is closely related to data processing, but they serve different purposes.
+
+- Data processing (or data preprocessing) is about cleaning and preparing data -- handling missing values, removing duplicates, correcting data types, and ensuring consistency. This step makes the data **usable**.
+- Feature engineering, on the other hand, comes after basic processing and focuses on improving the predictive power of dataset.
+- In essence, **data processing ensures data quality**, while **feature engineering enhances data value** for ML models.
+- Both are essential steps in building effective and accurate predictive systems.
