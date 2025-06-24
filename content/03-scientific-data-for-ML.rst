@@ -251,4 +251,15 @@ Why to use tensors in ML/DL (advantages of Tensor)?
    - moving tensors between CPUs and GPUs (suppose that you can access to GPU cards)
 
 
+Data Preprocessing
+------------------
+
+
+With the huge amount of data at disposal, more and more researchers and industry professionals are finding ways to use this data for research and commercial benefits. However, most of the data available by default is too raw. It is important to preprocess it before it can be used to identify important patterns or can be used to train statistical models that can be used to make predictions.
+
+Data preprocessing refers to steps taken to integrate, clean, transform, and organize raw data into a format that can be effectively used by ML algorithms. It’s one of the most critical steps in the ML workflow because high-quality data leads to better model performance. 
+
+`HERE <>`_ we provide a tutorial addressing representative steps for preprocessing data in `penguins datasets <https://inria.github.io/scikit-learn-mooc/python_scripts/trees_dataset.html>`_ using Python libraries like `numpy`, `pandas`, `matplotlib`, `seaborn`, and `scikit-learn`.
+
+
 
