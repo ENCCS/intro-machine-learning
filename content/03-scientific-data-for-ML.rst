@@ -5,6 +5,10 @@ Scientific Data for Machine Learning
 .. questions::
 
    - why data is super important in ML?
+   - what is the type and form of scientific data?
+   - what are the representative data storage formats?
+   - which data structure is widely used in ML/DL applications?
+   - what is data processing and feature engineering in ML/DL applications?
 
 
 
