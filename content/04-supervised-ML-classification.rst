@@ -66,6 +66,31 @@ Seaborn provides the Penguins dataset through its built-in data-loading function
    343; Gentoo; Biscoe; 49.9; 16.1; 213.0; 5400.0; Male
 
 
+There are seven columns include:
+
+- *species*: penguin species (Adelie, Chinstrap, Gentoo)
+- *island*: island where the penguin was found (Biscoe, Dream, Torgersen)
+- *bill_length_mm*: length of the bill
+- *bill_depth_mm*: depth of the bill
+- *flipper_length_mm*: length of the flipper
+- *body_mass_g*: body mass in grams
+- *sex*: male or female
+
+Looking at numbers from `penguins` `penguins.describe()` usually does not give a very good intuition about the data we are working with, we have the preference to visualize the data.
+
+One nice visualization for datasets with relatively few attributes is the Pair Plot, which can be created using ``sns.pairplot(...)``.
+It shows a scatterplot of each attribute plotted against each of the other attributes.
+By using the ``hue='species'`` setting for the pairplot the graphs on the diagonal are layered kernel density estimate plots for the different values of the ``species`` column.
+
+.. code-block:: python
+
+   sns.pairplot(penguins_classification[["species", "bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g"]], hue="species", height=2.0)
+
+.. figure:: img/penguins-pairplot.png
+   :align: center
+   :width: 512px
+
+
 
 
 
