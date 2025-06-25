@@ -88,8 +88,22 @@ By using the ``hue='species'`` setting for the pairplot the graphs on the diagon
 
 .. figure:: img/penguins-pairplot.png
    :align: center
-   :width: 512px
+   :width: 640px
 
+
+.. challenge:: Discussion
+
+   Take a look at the pairplot we created. Consider the following questions:
+
+   - Is there any class that is easily distinguishable from the others?
+   - Which combination of attributes shows the best separation for all 3 class labels at once?
+   - (optional) Create a similar pairplot, but with ``hue="sex"``. Explain the patterns you see. Which combination of features distinguishes the two sexes best?
+
+   .. solution::
+
+      1. The plots show that the green class (Gentoo) is somewhat more easily distinguishable from the other two.
+     2. Adelie and Chinstrap seem to be separable by a combination of bill length and bill depth (other combinations are also possible such as bill length and flipper length).
+     3. ``sns.pairplot(penguins_classification, hue="sex", height=2.0)``. From the plots you can see that for each species females have smaller bills and flippers, as well as a smaller body mass. You would need a combination of the species and the numerical features to successfully distinguish males from females. The combination of bill_depth_mm and body_mass_g gives the best separation.
 
 
 
