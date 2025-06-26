@@ -131,8 +131,28 @@ In the classification task, we will use the categorical variable *species* as th
 
    .. solution::
 
-      1. *species* will be the main biological classification target in this dataset as it 3 distinct classes (Adelie, Chinstrap, and Gentoo). This is commonly used in ML tutorials as a multi-class classification example (similar to the `Iris dataset <https://archive.ics.uci.edu/dataset/53/iris>`_).
+     1. *species* will be the main biological classification target in this dataset as it 3 distinct classes (Adelie, Chinstrap, and Gentoo). This is commonly used in ML tutorials as a multi-class classification example (similar to the `Iris dataset <https://archive.ics.uci.edu/dataset/53/iris>`_).
      2. *island* is not a ideal label as it is just geographical info, not a biological classification target; *sex* is possible but quite limited. This variable only has two classes (only for binary classification), and the data is unbalanced and has missing values.
+
+
+It is noted that ML models cannot directly process categorical (non-numeric) data, so we have to encode categorical variables like *species*, *island*, and *sex* into numerical values. Here we use ``LabelEncoder`` from ``sklearn.preprocessing`` to convert the species column, which serves as our classification target. The ``LabelEncoder`` assigns a unique integer to each species: "Adelie" becomes 0, "Chinstrap" becomes 1, and "Gentoo" becomes 2. This transformation allows classification algorithms to treat the species labels as distinct, unordered classes.
+
+Then we apply the same rule to encode the island and sex columns. Although these are typically better handled with one-hot encoding due to their nominal nature, we use ``LabelEncoder`` here for simplicity and compact representation. Each unique category in island (*e.g.*, "Biscoe", "Dream", "Torgersen") and sex (*e.g.*, "Male", "Female") is mapped to a unique integer. This enables us to include them as input features in the model without manual transformation. However, it’s important to note that ``LabelEncoder`` introduces an implicit ordinal relationship, which might not always be appropriate -- in such cases, ``OneHotEncoder`` is preferred.
+
+.. code-block:: python
+
+   from sklearn.preprocessing import LabelEncoder
+
+   encoder = LabelEncoder()
+
+   # encode `species` column with 0=Adelie, 1=Chinstrap, and 2=Gentoo
+   penguins_classification.loc[:, 'species'] = encoder.fit_transform(penguins_classification['species'])
+
+   # encode `island` column with 0=Biscoe, 1=Dream and 2=Torgersen
+   penguins_classification.loc[:, 'island'] = encoder.fit_transform(penguins_classification['island'])
+
+   # encode `sex` column 0=Female and 1=Male
+   penguins_classification.loc[:, 'sex'] = encoder.fit_transform(penguins_classification['sex'])
 
 
 
