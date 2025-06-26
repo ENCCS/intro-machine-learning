@@ -1,4 +1,4 @@
-Supervised ML (I): Classification
+Supervised Learning (I): Classification
 =================================
 
 
@@ -172,6 +172,19 @@ Separating features (X) from labels (y) ensures a clear distinction between what
    X = penguins_classification.drop(['species'], axis=1)
    y = penguins_classification['species']
 
+
+Splitting training and testing sets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+After separating features and labels in the penguins dataset, we further divide the data into a training set and a testing set. The training set is used to train the model, allowing it to learn patterns and relationships from the data, and the test set, on the other hand, is reserved for evaluating the model’s performance on unseen data. A common split is 80% for training and 20% for testing, which provides enough data for training while still retaining a meaningful test set.
+
+This splitting is typically done using the ``train_test_split`` function from ``sklearn.model_selection``, with a fixed ``random_state`` to ensure reproducibility.
+
+.. code-block:: python
+
+   from sklearn.model_selection import train_test_split
+   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=123)
+   print(f"Number of examples for training is {len(X_train)} and test is {len(X_test)}")
 
 
 
