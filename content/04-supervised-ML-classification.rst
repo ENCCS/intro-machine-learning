@@ -155,5 +155,23 @@ Then we apply the same rule to encode the island and sex columns. Although these
    penguins_classification.loc[:, 'sex'] = encoder.fit_transform(penguins_classification['sex'])
 
 
+Data Splitting
+--------------
+
+
+Splitting features and labels
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In preparing the penguins dataset for classification, we first need to split the data into features and labels. The target variable we aim to predict is the penguin species, which we encode into numeric labels using ``LabelEncoder``. This encoded species column will be the **label vector** (*e.g.*, **y**). The remaining columns -- such as bill length, bill depth, flipper length, body mass, and encoded categorical variables like island and sex -- constitute the **feature matrix** (*e.g.*, **X**). These features contain the input information the model will learn from.
+
+Separating features (X) from labels (y) ensures a clear distinction between what the model uses for prediction and what it is trying to predict.
+
+
+.. code-block:: python
+
+   X = penguins_classification.drop(['species'], axis=1)
+   y = penguins_classification['species']
+
+
 
 
