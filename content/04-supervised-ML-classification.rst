@@ -119,7 +119,20 @@ For a ML task, the input data (features) and target data (label) are not yet in 
 It is noted that we don't have outliers in this dataset (as we have discussed this issue in the `data processing <>`_ tutorial). For the other datasets you use for the first time, you should check if there are outliers for some features in the dataset, and then take steps to handle the outliers, either to imputate outliers with mean/median values or to remove abnormal outliers for simplicity.
 
 
+Encoding categorical variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+In the classification task, we will use the categorical variable *species* as the label (target variable), and other columns as features to predict the species of penguins.
+
+.. challenge:: Discussion
+
+   - why to use *species*?
+   - why not to use other other categorical variables (here it would be *island* and *sex*)?
+
+   .. solution::
+
+      1. *species* will be the main biological classification target in this dataset as it 3 distinct classes (Adelie, Chinstrap, and Gentoo). This is commonly used in ML tutorials as a multi-class classification example (similar to the `Iris dataset <https://archive.ics.uci.edu/dataset/53/iris>`_).
+     2. *island* is not a ideal label as it is just geographical info, not a biological classification target; *sex* is possible but quite limited. This variable only has two classes (only for binary classification), and the data is unbalanced and has missing values.
 
 
 
