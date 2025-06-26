@@ -197,6 +197,46 @@ Each algorithm offers a unique approach to pattern recognition and generalizatio
 
 Before training, it is also essential to ensure that numerical features are properly scaled via applying standardization or normalization -- especially for distance-based or gradient-based models -- to achieve optimal results.
 
+.. code-block:: python
+
+   from sklearn.preprocessing import StandardScaler
+   
+   # Standardize features
+   scaler = StandardScaler()
+
+   X_train_scaled = scaler.fit_transform(X_train)
+   X_test_scaled = scaler.transform(X_test)
+
+
+Below is the generic steps for training a model:
+
+- choosing a model class and importing that model ``from sklearn.neighbors import XXXClassifier``
+- choosing the model hyperparameters by instantiating this class with desired values ``xxx_clf = XXXClassifier(<... hyperparameters ...>)``
+- training the model to the preprocessed train data by calling the ``fit()`` method of the model instance ``xxx_clf.fit(X_train_scaled, y_train)``
+- making predictions using the trained model on test data ``y_pred_xxx = xxx_clf.predict(X_test)``
+- evaluating model’s performance using available metrics ``score_xxx = accuracy_score(y_test, y_pred_xxx)``
+- (optional) data visualization of confusion matrix and relevant data
+
+
+k-Nearest Neighbors (KNN)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
