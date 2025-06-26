@@ -101,10 +101,22 @@ By using the ``hue='species'`` setting for the pairplot the graphs on the diagon
 
    .. solution::
 
-      1. The plots show that the green class (Gentoo) is somewhat more easily distinguishable from the other two.
+     1. The plots show that the green class (Gentoo) is somewhat more easily distinguishable from the other two.
      2. Adelie and Chinstrap seem to be separable by a combination of bill length and bill depth (other combinations are also possible such as bill length and flipper length).
      3. ``sns.pairplot(penguins_classification, hue="sex", height=2.0)``. From the plots you can see that for each species females have smaller bills and flippers, as well as a smaller body mass. You would need a combination of the species and the numerical features to successfully distinguish males from females. The combination of bill_depth_mm and body_mass_g gives the best separation.
 
+
+
+Data Processing
+---------------
+
+
+Handling missing values and outliers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For a ML task, the input data (features) and target data (label) are not yet in a right format to use. We need to pre-process the data (as what we did yesterday) to clean missing values using ``penguins_classification = penguins.dropna()`` and check duplicate values using ``penguins_classification.duplicated().value_counts()``.
+
+It is noted that we don't have outliers in this dataset (as we have discussed this issue in the `data processing <>`_ tutorial). For the other datasets you use for the first time, you should check if there are outliers for some features in the dataset, and then take steps to handle the outliers, either to imputate outliers with mean/median values or to remove abnormal outliers for simplicity.
 
 
 
