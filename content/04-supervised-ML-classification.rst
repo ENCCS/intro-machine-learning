@@ -327,7 +327,8 @@ For a multiclass classification, logistic regression can be extended using strat
    :align: center
    :width: 640px
 
-   1) The sigmoid function; 2) the softmax regression process: three input features to the softmax regression model resulting in three output vectors where each contains the predicted probabilities for three possible classes; 3) a bar chart of softmax outputs in which each group of bars represents the predicted probability distribution over three classes; 4-6) a binary classifier distinguishes one class from the other two classes using the one-vs-rest approach.
+   (Upper left) the sigmoid function; (upper middle) the softmax regression process: three input features to the softmax regression model resulting in three output vectors where each contains the predicted probabilities for three possible classes; (upper right) a bar chart of softmax outputs in which each group of bars represents the predicted probability distribution over three classes; lower subplots) three binary classifiers distinguish one class from the other two classes using the one-vs-rest approach.
+
 
 The creation of a Logistic Regression model and the process of fitting it to the training data are nearly identical to those used for the KNN model described above, except that a different classifier is selected. The code example and the resulting confusion matrix plot are provided below:
 
