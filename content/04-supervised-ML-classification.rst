@@ -227,7 +227,16 @@ Below is the generic steps for representative algorithms we will use to training
 k-Nearest Neighbors (KNN)
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
+One intuitive and widely-used method is the k-Nearest Neighbors (KNN) algorithm. KNN is a non-parametric, instance-based algorithm that predicts a sample's label based on the majority class of its *k* closest neighbors in training set.
 
+KNN does not require training in the traditional sense; instead, it stores the entire dataset and performs computation during prediction time. This makes it a lazy learner but potentially expensive during inference.
+
+Here is an example of using the KNN algorithm to determine which class the new point belongs to. When the given query point, the KNN algorithm calculates the distance between this point and all points in the training dataset. It then selects the *k* points that are closest. The class with the most representatives among the *k* neighbors is chosen to be the prediction result for the query point.
+It is noted that the choice of *k* (the number of neighbors) significantly affects performance: a small *k* may be sensitive to noise, while a large *k* may smooth over important patterns.
+
+.. figure:: img/knn-example.png
+   :align: center
+   :width: 512px
 
 
 
