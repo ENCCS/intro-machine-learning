@@ -319,6 +319,7 @@ Despite its name, logistic regression is not a regression algorithm but a classi
 For binary classification, it uses the logistic (**sigmoid**) function to map a linear combination of input features to a probability between 0 and 1, which is then thresholded (typically at 0.5) to assign a class.
 
 For a multiclass classification, logistic regression can be extended using strategies like **one-vs-rest** (OvR) or softmax regression.
+
 - in OvR, a separate binary classifier is trained for each species against all others.
 - **softmax regression** generalizes the logistic function to compute probabilities across all classes simultaneously, selecting the class with the highest probability.
 
@@ -328,25 +329,29 @@ For a multiclass classification, logistic regression can be extended using strat
 
    1) The sigmoid function; 2) the softmax regression process: three input features to the softmax regression model resulting in three output vectors where each contains the predicted probabilities for three possible classes; 3) a bar chart of softmax outputs in which each group of bars represents the predicted probability distribution over three classes; 4-6) a binary classifier distinguishes one class from the other two classes using the one-vs-rest approach.
 
+The creation of a Logistic Regression model and the process of fitting it to the training data are nearly identical to those used for the KNN model described above, except that a different classifier is selected. The code example and the resulting confusion matrix plot are provided below:
 
-```
-from sklearn.linear_model import LogisticRegression
+.. code-block:: python
 
-lr_clf = LogisticRegression(random_state = 0)
-lr_clf.fit(X_train_scaled, y_train)
+   from sklearn.linear_model import LogisticRegression
 
-y_pred_lr = lr_clf.predict(X_test_scaled)
+   lr_clf = LogisticRegression(random_state = 0)
+   lr_clf.fit(X_train_scaled, y_train)
 
-score_lr = accuracy_score(y_test, y_pred_lr)
-print("Accuracy for Logistic Regression:", score_lr )
-print("\nClassification Report:\n", classification_report(y_test, y_pred_lr))
+   y_pred_lr = lr_clf.predict(X_test_scaled)
 
-# compute and plot confusion matrix
-cm_lr = confusion_matrix(y_test, y_pred_lr)
-plot_confusion_matrix(cm_lr, "Confusion Matrix using Logistic Regression algorithm", "confusion-matrix-lr.png")
-```
+   score_lr = accuracy_score(y_test, y_pred_lr)
+   print("Accuracy for Logistic Regression:", score_lr )
+   print("\nClassification Report:\n", classification_report(y_test, y_pred_lr))
+
+   # compute and plot confusion matrix
+   cm_lr = confusion_matrix(y_test, y_pred_lr)
+   plot_confusion_matrix(cm_lr, "Confusion Matrix using Logistic Regression algorithm", "confusion-matrix-lr.png")
 
 
+.. figure:: img/confusion-matrix-lr.png
+   :align: center
+   :width: 384px
 
 
 
