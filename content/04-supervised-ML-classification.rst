@@ -304,9 +304,49 @@ We compute the confusion matrix from the trined model using the KNN algorithm, a
 
 .. figure:: img/confusion-matrix-knn.png
    :align: center
-   :width: 256px
+   :width: 384px
 
    The first row: there are 28 Adelie penguins in the test data, and all these penguins are identified as Adelie (valid). The second row: there are 20 Chinstrap pengunis in the test data, with 2 identified as Adelie (invalid), none are correctly recognized as Chinstrap, and 18 identified as Chinstrap (valid). The third row: there are 19 Gentoo penguins in the test data, and all these penguins are identified as Gentoo (valid).
+
+
+
+Logistic regression
+^^^^^^^^^^^^^^^^^^^
+
+**Logistic Regression** is a fundamental classification algorithm to predict categorical outcomes.
+Despite its name, logistic regression is not a regression algorithm but a classification method that predicts the probability of an instance belonging to a particular class.
+
+For binary classification, it uses the logistic (**sigmoid**) function to map a linear combination of input features to a probability between 0 and 1, which is then thresholded (typically at 0.5) to assign a class.
+
+For a multiclass classification, logistic regression can be extended using strategies like **one-vs-rest** (OvR) or softmax regression.
+- in OvR, a separate binary classifier is trained for each species against all others.
+- **softmax regression** generalizes the logistic function to compute probabilities across all classes simultaneously, selecting the class with the highest probability.
+
+.. figure:: img/logistic-regression-example.png
+   :align: center
+   :width: 640px
+
+   1) The sigmoid function; 2) the softmax regression process: three input features to the softmax regression model resulting in three output vectors where each contains the predicted probabilities for three possible classes; 3) a bar chart of softmax outputs in which each group of bars represents the predicted probability distribution over three classes; 4-6) a binary classifier distinguishes one class from the other two classes using the one-vs-rest approach.
+
+
+```
+from sklearn.linear_model import LogisticRegression
+
+lr_clf = LogisticRegression(random_state = 0)
+lr_clf.fit(X_train_scaled, y_train)
+
+y_pred_lr = lr_clf.predict(X_test_scaled)
+
+score_lr = accuracy_score(y_test, y_pred_lr)
+print("Accuracy for Logistic Regression:", score_lr )
+print("\nClassification Report:\n", classification_report(y_test, y_pred_lr))
+
+# compute and plot confusion matrix
+cm_lr = confusion_matrix(y_test, y_pred_lr)
+plot_confusion_matrix(cm_lr, "Confusion Matrix using Logistic Regression algorithm", "confusion-matrix-lr.png")
+```
+
+
 
 
 
