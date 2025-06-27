@@ -239,9 +239,37 @@ It is noted that the choice of *k* (the number of neighbors) significantly affec
    :width: 512px
 
 
+Let’s create the KNN model. Here we choose 3 as the *k* value of the algorithm, which means that data needs 3 neighbors to be classified as one entity. Then we fit the train data using the ``fit()`` method.
+
+.. code-block:: python
+
+   from sklearn.neighbors import KNeighborsClassifier
+
+   knn_clf = KNeighborsClassifier(n_neighbors=3)
+   knn_clf.fit(X_train_scaled, y_train)
 
 
+After we fitting the training data, we use the trained model to predict species on the test set and evaluate its performance.
 
+For classification tasks, metrics like accuracy, precision, recall, and the F1-score provide a comprehensive view of model performance.
+
+- **accuracy** measures the proportion of correctly classified instances across all species (Adelie, Chinstrap, Gentoo), and it gives an overall measure of how often the model is correct, but it can be misleading for imbalanced datasets.
+- **precision** quantifies the proportion of correct positive predictions for each species, while **recall** assesses the proportion of actual positives correctly identified.
+- the **F1-score**, the harmonic mean of precision and recall, balances these metrics for each class, especially useful given the dataset’s imbalanced species distribution.
+
+
+.. code-block:: python
+
+   # predict on test data
+   y_pred_knn = knn_clf.predict(X_test_scaled)
+
+   # evaluate model performance
+   from sklearn.metrics import classification_report, accuracy_score
+
+   score_knn = accuracy_score(y_test, y_pred_knn)
+
+   print("Accuracy for KNN:", score_knn)
+   print("\nClassification Report:\n", classification_report(y_test, y_pred_knn))
 
 
 
