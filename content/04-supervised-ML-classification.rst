@@ -46,6 +46,7 @@ Seaborn provides the Penguins dataset through its built-in data-loading function
    import seaborn as sns
 
    penguins = sns.load_dataset('penguins')
+   penguins
 
 
 .. csv-table::
@@ -76,7 +77,7 @@ There are seven columns include:
 - *body_mass_g*: body mass in grams
 - *sex*: male or female
 
-Looking at numbers from `penguins` `penguins.describe()` usually does not give a very good intuition about the data we are working with, we have the preference to visualize the data.
+Looking at numbers from ``penguins`` and ``penguins.describe()`` usually does not give a very good intuition about the data we are working with, we have the preference to visualize the data.
 
 One nice visualization for datasets with relatively few attributes is the Pair Plot, which can be created using ``sns.pairplot(...)``.
 It shows a scatterplot of each attribute plotted against each of the other attributes.
@@ -145,13 +146,13 @@ Then we apply the same rule to encode the island and sex columns. Although these
 
    encoder = LabelEncoder()
 
-   # encode `species` column with 0=Adelie, 1=Chinstrap, and 2=Gentoo
+   # encode "species" column with 0=Adelie, 1=Chinstrap, and 2=Gentoo
    penguins_classification.loc[:, 'species'] = encoder.fit_transform(penguins_classification['species'])
 
-   # encode `island` column with 0=Biscoe, 1=Dream and 2=Torgersen
+   # encode "island" column with 0=Biscoe, 1=Dream and 2=Torgersen
    penguins_classification.loc[:, 'island'] = encoder.fit_transform(penguins_classification['island'])
 
-   # encode `sex` column 0=Female and 1=Male
+   # encode "sex" column 0=Female and 1=Male
    penguins_classification.loc[:, 'sex'] = encoder.fit_transform(penguins_classification['sex'])
 
 
@@ -170,7 +171,7 @@ Separating features (X) from labels (y) ensures a clear distinction between what
 .. code-block:: python
 
    X = penguins_classification.drop(['species'], axis=1)
-   y = penguins_classification['species']
+   y = penguins_classification['species'].astype('int')
 
 
 Splitting training and testing sets
@@ -183,17 +184,14 @@ This splitting is typically done using the ``train_test_split`` function from ``
 .. code-block:: python
 
    from sklearn.model_selection import train_test_split
+
    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=123)
+
    print(f"Number of examples for training is {len(X_train)} and test is {len(X_test)}")
 
 
-
-Training Model & Evaluating Model Performance
----------------------------------------------
-
-
-After preparing the Penguins dataset by handling missing values, encoding categorical variables, and splitting it into features-labels and training-test datasets, the next step is to apply classification algorithms including k-Nearest Neighbors (KNN), Decision Trees, Random Forests, Naive Bayes, and Neural Networks to predict penguin species based on their physical measurements
-Each algorithm offers a unique approach to pattern recognition and generalization, and applying them to the same prepared dataset allows for a fair comparison of their predictive performance.
+Feature scaling
+^^^^^^^^^^^^^^^
 
 Before training, it is also essential to ensure that numerical features are properly scaled via applying standardization or normalization -- especially for distance-based or gradient-based models -- to achieve optimal results.
 
@@ -208,12 +206,20 @@ Before training, it is also essential to ensure that numerical features are prop
    X_test_scaled = scaler.transform(X_test)
 
 
-Below is the generic steps for training a model:
+
+Training Model & Evaluating Model Performance
+---------------------------------------------
+
+
+After preparing the Penguins dataset by handling missing values, encoding categorical variables, and splitting it into features-labels and training-test datasets, the next step is to apply classification algorithms including k-Nearest Neighbors (KNN), Decision Trees, Random Forests, Naive Bayes, and Neural Networks to predict penguin species based on their physical measurements
+Each algorithm offers a unique approach to pattern recognition and generalization, and applying them to the same prepared dataset allows for a fair comparison of their predictive performance.
+
+Below is the generic steps for representative algorithms we will use to training a model for penguins classification:
 
 - choosing a model class and importing that model ``from sklearn.neighbors import XXXClassifier``
 - choosing the model hyperparameters by instantiating this class with desired values ``xxx_clf = XXXClassifier(<... hyperparameters ...>)``
 - training the model to the preprocessed train data by calling the ``fit()`` method of the model instance ``xxx_clf.fit(X_train_scaled, y_train)``
-- making predictions using the trained model on test data ``y_pred_xxx = xxx_clf.predict(X_test)``
+- making predictions using the trained model on test data ``y_pred_xxx = xxx_clf.predict(X_test_scaled)``
 - evaluating model’s performance using available metrics ``score_xxx = accuracy_score(y_test, y_pred_xxx)``
 - (optional) data visualization of confusion matrix and relevant data
 
