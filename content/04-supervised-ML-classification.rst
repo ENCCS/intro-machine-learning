@@ -272,13 +272,34 @@ For classification tasks, metrics like accuracy, precision, recall, and the F1-s
    print("\nClassification Report:\n", classification_report(y_test, y_pred_knn))
 
 
+In classification tasks, a **confusion matrix** is a valuable tool for evaluating model performance by comparing predicted labels against true labels.
+For a multiclass classification task like the penguins dataset, the confusion matrix is an **N x N** matrix, where **N** is the number of target classes (here **N=3** for three penguins species). Each cell $(i, j)$ in the matrix indicates the number of instances where the true class was $i$ and the model predicted class $j$. Diagonal elements represent correct predictions, while off-diagonal elements indicate misclassifications. The confusion matrix provides an easy-to-understand overview of how often the predictions match the actual labels and where the model tends to make mistakes.
 
+Since we will plot the confusion matrix multiple times, we write a function and call this function later whenever needed, which promotes clarity and avoids redundancy. This is especially helpful as we evaluate multiple classifiers such as KNN, Decision Trees, or SVM on the penguins dataset.
 
+.. code-block:: python
 
+   from sklearn.metrics import confusion_matrix
 
+   def plot_confusion_matrix(conf_matrix, title, fig_name):
+       plt.figure(figsize=(6, 5))
+       sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='OrRd',
+                   xticklabels=["Adelie", "Chinstrap", "Gentoo"],
+                   yticklabels=['Adelie', 'Chinstrap', 'Gentoo'], cbar=True)
+       
+       plt.xlabel("Predicted Label")
+       plt.ylabel("True Label")
+       plt.title(title)
+       plt.tight_layout()
+       plt.savefig(fig_name)
 
+We compute the confusion matrix from the trined model using the KNN algorithm, and visualize the matrix.
 
+.. code-block:: python
 
+   cm_knn = confusion_matrix(y_test, y_pred_knn)
+
+   plot_confusion_matrix(cm_knn, "Confusion Matrix using KNN algorithm", "confusion-matrix-knn.png")
 
 
 
