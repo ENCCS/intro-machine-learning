@@ -419,6 +419,25 @@ Unlike Logistic Regression, which uses all data points to estimate probabilities
 
    The SVM classification boundary for distinguishing cats and dogs based on ear length and weight. The solid black line represents the maximum margin hyperplane (decision boundary), while the dashed green lines show the positive and negative hyperplanes that define the margin. Black circles highlight the support vectors - the critical data points that determine the margin width.
 
+To apply SVM, we use ``SVC`` (Support Vector Classification) from ``sklearn.svm``, which by default assumes that the features follow a nonlinear relationship modeled by the ``rbf`` (Radial Basis Function) kernel. This kernel allows the model to find complex decision boundaries by implicitly mapping the input features into a higher-dimensional space. You can easily change the kernel to ``linear``, ``poly``, or ``sigmoid`` to experiment with different decision boundaries.
+
+By adjusting the hyperparameters such as ``C`` (regularization strength) and ``gamma`` (kernel coefficient), we can control the trade-off between the margin width and classification accuracy. Below is a code example demonstrating how to use SVC with the RBF kernel for the penguins classification task.
+
+.. code-block:: python
+
+   from sklearn.svm import SVC
+
+   svm_clf = SVC(kernel='rbf', C=1.0, gamma='scale', random_state=0)
+   svm_clf.fit(X_train_scaled, y_train)
+
+   y_pred_svm = svm_clf.predict(X_test_scaled)
+
+   score_svm = accuracy_score(y_test, y_pred_svm)
+   print("Accuracy for Support Vector Machine:", score_svm)
+   print("\nClassification Report:\n", classification_report(y_test, y_pred_svm))
+
+   cm_svm = confusion_matrix(y_test, y_pred_svm)
+   plot_confusion_matrix(cm_svm, "Confusion Matrix using Support Vector Machine algorithm", "confusion-matrix-svm.png")
 
 
 
