@@ -268,7 +268,7 @@ For classification tasks, metrics like accuracy, precision, recall, and the F1-s
 
    score_knn = accuracy_score(y_test, y_pred_knn)
 
-   print("Accuracy for KNN:", score_knn)
+   print("Accuracy for k-Nearest Neighbors:", score_knn)
    print("\nClassification Report:\n", classification_report(y_test, y_pred_knn))
 
 
@@ -345,14 +345,27 @@ The creation of a Logistic Regression model and the process of fitting it to the
    print("Accuracy for Logistic Regression:", score_lr )
    print("\nClassification Report:\n", classification_report(y_test, y_pred_lr))
 
-   # compute and plot confusion matrix
    cm_lr = confusion_matrix(y_test, y_pred_lr)
    plot_confusion_matrix(cm_lr, "Confusion Matrix using Logistic Regression algorithm", "confusion-matrix-lr.png")
-
 
 .. figure:: img/confusion-matrix-lr.png
    :align: center
    :width: 384px
+
+
+
+Naive Bayes 
+^^^^^^^^^^^
+
+The **Naive Bayes** algorithm is a simple yet powerful probabilistic classifier based on Bayes' Theorem. This classifier assumes that all features are equally important and independent which is often not the case and may result in some bias. However, the assumption of independence simplifies the computations by turning conditional probabilities into products of probabilities. This algorithm computes the probability of each class given the input features and selects the class with the highest posterior probability. 
+
+Logistic regression and Naive Bayes are both popular algorithms for classification tasks, but they differ significantly in their approach, assumptions, and mechanics.
+
+- Logistic regression is a **discriminative** model that directly models the probability of a data point belonging to a particular class by fitting a linear combination of features through a logistic (sigmoid) function for binary classification or softmax for multiclass tasks. For the penguins dataset, it would use features like bill length and flipper length to compute a weighted sum, transforming it into probabilities for species like Adelie, Chinstrap, or Gentoo. It assumes a linear relationship between features and the log-odds of the classes and optimizes parameters using maximum likelihood estimation, making it sensitive to feature scaling and correlations. Logistic regression is robust to noise and can handle correlated features to some extent, but it may struggle with highly non-linear relationships unless feature engineering is applied.
+- Naive Bayes, in contrast, is a generative model that relies on Bayes’ theorem to compute the probability of a class given the features, assuming conditional independence between features given the class. For the penguins dataset, it would estimate the likelihood of features (*e.g.*, bill depth) for each species and combine these with prior probabilities to predict the most likely species. The "naive" assumption of feature independence often doesn’t hold (*e.g.*, bill length and depth may be correlated), but Naive Bayes is computationally efficient, works well with high-dimensional data, and is less sensitive to irrelevant features. However, it can underperform when feature dependencies are significant or when the data distribution deviates from its assumptions (*e.g.*, Gaussian for continuous features in Gaussian Naive Bayes). Unlike logistic regression, it doesn’t require feature scaling but may need careful handling of zero probabilities (*e.g.*, via smoothing).
+
+
+
 
 
 
