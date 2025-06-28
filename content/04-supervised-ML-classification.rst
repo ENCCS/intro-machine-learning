@@ -310,7 +310,7 @@ We compute the confusion matrix from the trined model using the KNN algorithm, a
 
 
 
-Logistic regression
+Logistic Regression
 ^^^^^^^^^^^^^^^^^^^
 
 **Logistic Regression** is a fundamental classification algorithm to predict categorical outcomes.
@@ -394,6 +394,14 @@ While Naive Bayes may not outperform more complex models like Random Forests, it
    :align: center
    :width: 384px
 
+
+
+Support Vector Machine (SVM)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Previously we shown an example using Logistic Regression classifier producing a linear decision boundary that separates cats from dogs. It works by fitting a linear decision boundary that separates two classes based on the logistic function, making it particularly effective when the data is linearly separable. One characteristic of logistic regression is that the decision boundary tends to fall in the region where the probabilities of two classes are closest -- typically where the model is most uncertain.
+
+However, when there exists a large gap between two well-separated classes -- as often occurs when distinguishing cats and dogs based on weight and ear length -- logistic regression faces an inherent limitation: infinite possible solutions. The algorithm has no mechanism to select an "optimal" boundary when multiple valid linear separators exist in the wide margin between classes, and it will place the decision boundary somewhere in that gap, leading to a broad, undefined decision region with no supporting data. While this may not affect accuracy on clearly separated data, it can make the model less robust when new or noisy data appears near that boundary.
 
 
 
