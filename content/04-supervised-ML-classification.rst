@@ -236,7 +236,7 @@ It is noted that the choice of *k* (the number of neighbors) significantly affec
 
 .. figure:: img/knn-example.png
    :align: center
-   :width: 512px
+   :width: 640px
 
 
 Let’s create the KNN model. Here we choose 3 as the *k* value of the algorithm, which means that data needs 3 neighbors to be classified as one entity. Then we fit the train data using the ``fit()`` method.
@@ -304,7 +304,7 @@ We compute the confusion matrix from the trined model using the KNN algorithm, a
 
 .. figure:: img/confusion-matrix-knn.png
    :align: center
-   :width: 384px
+   :width: 420px
 
    The first row: there are 28 Adelie penguins in the test data, and all these penguins are identified as Adelie (valid). The second row: there are 20 Chinstrap pengunis in the test data, with 2 identified as Adelie (invalid), none are correctly recognized as Chinstrap, and 18 identified as Chinstrap (valid). The third row: there are 19 Gentoo penguins in the test data, and all these penguins are identified as Gentoo (valid).
 
@@ -350,7 +350,7 @@ The creation of a Logistic Regression model and the process of fitting it to the
 
 .. figure:: img/confusion-matrix-lr.png
    :align: center
-   :width: 384px
+   :width: 420px
 
 
 
@@ -368,7 +368,7 @@ Below is an example comparing Logistic Regression and Naive Bayes decision bound
 
 .. figure:: img/4-naive-bayes-example.png
    :align: center
-   :width: 512px
+   :width: 640px
 
 To apply Naive Bayes, we use ``GaussianNB`` from ``sklearn.naive_bayes``, which assumes that the features follow a Gaussian (normal) distribution, which is an appropriate choice for continuous numerical data such as bill length and body mass. Since Naive Bayes relies on probabilities, **feature scaling is not required**, but **handling missing values and encoding categorical variables numerically is still necessary**.
 
@@ -392,7 +392,7 @@ While Naive Bayes may not outperform more complex models like Random Forests, it
 
 .. figure:: img/4-confusion-matrix-nb.png
    :align: center
-   :width: 384px
+   :width: 420px
 
 
 
@@ -405,11 +405,21 @@ However, when there exists a large gap between two well-separated classes -- as 
 
 Below is an example, again, to separate cats from dogs based on ear length and weight. Besides the linear decision boundary from Logistic Regression classifier, we can find three additional linear boundaries that can also have a good separation of cats from dogs. Which one is better than the others and how to evaluate their performance on unseen data?
 
-.. figure:: img/4-svm-example-all.png
+.. figure:: img/4-svm-example-large-gap.png
    :align: center
-   :width: 384px
+   :width: 640px
 
 To better handle such situation, we can transition to the **Support Vector Machine** (SVM) algorithm. SVM takes a different approach by focusing on the concept of maximizing the margin -- the distance between the decision boundary and the closest data points from each class (the support vectors) (as shown in the figure below). When there is a large gap between the two classes, SVM utilizes that space effectively by pushing the boundary toward the center of the gap while maintaining the maximum margin. This leads to a more stable and robust classifier, particularly in cases where the classes are well-separated.
+
+Unlike Logistic Regression, which uses all data points to estimate probabilities, SVM relies primarily on the most critical examples (the ones nearest the boundary), making it less sensitive to outliers and more precise in defining class divisions.
+
+.. figure:: img/4-svm-example-with-max-margin-separation.png
+   :align: center
+   :width: 640px
+
+   The SVM classification boundary for distinguishing cats and dogs based on ear length and weight. The solid black line represents the maximum margin hyperplane (decision boundary), while the dashed green lines show the positive and negative hyperplanes that define the margin. Black circles highlight the support vectors - the critical data points that determine the margin width.
+
+
 
 
 
