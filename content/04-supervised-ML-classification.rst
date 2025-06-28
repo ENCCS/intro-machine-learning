@@ -362,13 +362,41 @@ The **Naive Bayes** algorithm is a simple yet powerful probabilistic classifier 
 Logistic regression and Naive Bayes are both popular algorithms for classification tasks, but they differ significantly in their approach, assumptions, and mechanics.
 
 - Logistic regression is a **discriminative** model that directly models the probability of a data point belonging to a particular class by fitting a linear combination of features through a logistic (sigmoid) function for binary classification or softmax for multiclass tasks. For the penguins dataset, it would use features like bill length and flipper length to compute a weighted sum, transforming it into probabilities for species like Adelie, Chinstrap, or Gentoo. It assumes a linear relationship between features and the log-odds of the classes and optimizes parameters using maximum likelihood estimation, making it sensitive to feature scaling and correlations. Logistic regression is robust to noise and can handle correlated features to some extent, but it may struggle with highly non-linear relationships unless feature engineering is applied.
-- Naive Bayes, in contrast, is a generative model that relies on Bayes’ theorem to compute the probability of a class given the features, assuming conditional independence between features given the class. For the penguins dataset, it would estimate the likelihood of features (*e.g.*, bill depth) for each species and combine these with prior probabilities to predict the most likely species. The "naive" assumption of feature independence often doesn’t hold (*e.g.*, bill length and depth may be correlated), but Naive Bayes is computationally efficient, works well with high-dimensional data, and is less sensitive to irrelevant features. However, it can underperform when feature dependencies are significant or when the data distribution deviates from its assumptions (*e.g.*, Gaussian for continuous features in Gaussian Naive Bayes). Unlike logistic regression, it doesn’t require feature scaling but may need careful handling of zero probabilities (*e.g.*, via smoothing).
+- Naive Bayes, in contrast, is a **generative** model that relies on Bayes’ theorem to compute the probability of a class given the features, assuming conditional independence between features given the class. For the penguins dataset, it would estimate the likelihood of features (*e.g.*, bill depth) for each species and combine these with prior probabilities to predict the most likely species. The "naive" assumption of feature independence often doesn’t hold (*e.g.*, bill length and depth may be correlated), but Naive Bayes is computationally efficient, works well with high-dimensional data, and is less sensitive to irrelevant features. However, it can underperform when feature dependencies are significant or when the data distribution deviates from its assumptions (*e.g.*, Gaussian for continuous features in Gaussian Naive Bayes). Unlike logistic regression, it doesn’t require feature scaling but may need careful handling of zero probabilities (*e.g.*, via smoothing).
 
 Below is an example comparing Logistic Regression and Naive Bayes decision boundaries on a synthetic dataset having two features. The visualization highlights their fundamental differences in modeling assumptions and classification behavior: **Logistic Regression learns a linear decision boundary directly, while Naive Bayes models feature distributions per class (assuming independence)**.
 
 .. figure:: img/4-naive-bayes-example.png
    :align: center
    :width: 512px
+
+To apply Naive Bayes, we use ``GaussianNB`` from ``sklearn.naive_bayes``, which assumes that the features follow a Gaussian (normal) distribution, which is an appropriate choice for continuous numerical data such as bill length and body mass. Since Naive Bayes relies on probabilities, **feature scaling is not required**, but **handling missing values and encoding categorical variables numerically is still necessary**.
+
+While Naive Bayes may not outperform more complex models like Random Forests, it offers **fast training, low memory usage**, and good performance for simple tasks.
+
+.. code-block:: python
+
+   from sklearn.naive_bayes import GaussianNB
+
+   nb_clf = GaussianNB()
+   nb_clf.fit(X_train_scaled, y_train)
+
+   y_pred_nb = nb_clf.predict(X_test_scaled)
+
+   score_nb = accuracy_score(y_test, y_pred_nb)
+   print("Accuracy for Naive Bayes:", score_nb)
+   print("\nClassification Report:\n", classification_report(y_test, y_pred_nb))
+
+   cm_nb = confusion_matrix(y_test, y_pred_nb)
+   plot_confusion_matrix(cm_nb, "Confusion Matrix using Naive Bayes algorithm", "confusion-matrix-nb.png")
+
+.. figure:: img/4-confusion-matrix-nb.png
+   :align: center
+   :width: 384px
+
+
+
+
 
 
 
