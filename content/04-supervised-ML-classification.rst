@@ -447,5 +447,11 @@ Decision Tree
 **Decision Tree** algorithm is a versatile and interpretable method for classification tasks. The core idea of this algorithm is to recursively split the dataset into smaller subsets based on feature thresholds creating a tree-like structure of decisions that result in the most significant separation of target classes.
 
 
+Here is one example showing how to separate cats and dogs on the basis of two or three features.
 
+.. figure:: img/4-decision-tree-example.png
+   :align: center
+   :width: 640px
+
+   (Upper) decision boundary separating cats and dogs based on two features (ear length and weight), and the corresponding decision tree structure; (lower): two decision boundaries separating cats and dogs based on three features (ear length, weight, and tail length), and the corresponding decision tree structure.
 
