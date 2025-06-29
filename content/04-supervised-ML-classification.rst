@@ -474,4 +474,17 @@ The code example for the Decision Tree classifier is provided below.
    plot_confusion_matrix(cm_dt, "Confusion Matrix using Decision Tree algorithm", "confusion-matrix-dt.png")
 
 
+We visualize the Decision Tree structure to understand how penguins are classified based on their physical characteristics.
 
+.. code-block:: python
+
+   from sklearn.tree import plot_tree
+
+   plt.figure(figsize=(16, 6))
+   plot_tree(dt_clf, feature_names=X.columns, filled=True, rounded=True, fontsize=10)
+
+   plt.title("Decision Tree Structure for Penguins Species Classification", fontsize=18)
+
+.. figure:: img/4-decision-tree-structure.png
+   :align: center
+   :width: 640px
