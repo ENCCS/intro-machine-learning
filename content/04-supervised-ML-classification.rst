@@ -455,3 +455,23 @@ Here is one example showing how to separate cats and dogs on the basis of two or
 
    (Upper) decision boundary separating cats and dogs based on two features (ear length and weight), and the corresponding decision tree structure; (lower): two decision boundaries separating cats and dogs based on three features (ear length, weight, and tail length), and the corresponding decision tree structure.
 
+The code example for the Decision Tree classifier is provided below.
+
+.. code-block:: python
+
+   from sklearn.tree import DecisionTreeClassifier
+
+   dt_clf = DecisionTreeClassifier(max_depth=3, random_state = 0)
+   dt_clf.fit(X_train_scaled, y_train)
+
+   y_pred_dt = dt_clf.predict(X_test_scaled)
+
+   score_dt = accuracy_score(y_test, y_pred_dt)
+   print("Accuracy for Decision Tree:", score_dt )
+   print("\nClassification Report:\n", classification_report(y_test, y_pred_dt))
+
+   cm_dt = confusion_matrix(y_test, y_pred_dt)
+   plot_confusion_matrix(cm_dt, "Confusion Matrix using Decision Tree algorithm", "confusion-matrix-dt.png")
+
+
+
