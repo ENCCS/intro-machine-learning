@@ -441,5 +441,11 @@ By adjusting the hyperparameters such as ``C`` (regularization strength) and ``g
 
 
 
+Decision Tree
+^^^^^^^^^^^^^
+
+**Decision Tree** algorithm is a versatile and interpretable method for classification tasks. The core idea of this algorithm is to recursively split the dataset into smaller subsets based on feature thresholds creating a tree-like structure of decisions that result in the most significant separation of target classes.
+
+
 
 
