@@ -520,8 +520,24 @@ Below is a figure demonstrating how Random Forest improves upon a single Decisio
    print("\nClassification Report:\n", classification_report(y_test, y_pred_rf))
 
    cm_rf = confusion_matrix(y_test, y_pred_rf)
-
    plot_confusion_matrix(cm_rf, "Confusion Matrix using Random Forest algorithm", "confusion-matrix-rf.png")
+
+In addition to the confusion matrix, feature importance in a Random Forest (and also in Decision Tree) model provides valuable insight into which input features contribute most to the model's predictions. Random Forest calculates feature importance by evaluating how much each feature decreases impurity -- such as Gini impurity or entropy -- when it is used to split the data across all decision trees in the forest. The higher the total impurity reduction attributed to a feature, the more important it is considered. These importance scores are then normalized to provide a relative ranking, helping identify which features are most influential in determining the output class. This information is especially useful for interpreting model behavior, selecting meaningful features, and understanding the underlying structure of the data.
+
+Below is the code example for plotting the feature importance using a Random Forest algorithm to classify penguins into three categories.
+
+.. code-block:: python
+
+   importances = rf_clf.feature_importances_
+   features = X.columns
+   plt.figure(figsize=(9, 6))
+   plt.barh(features, importances, color="tab:orange", alpha=0.75)
+   plt.xlabel("Feature Importance")
+   plt.ylabel("Features")
+   plt.title("Random Forest Feature Importance")
+   plt.tight_layout()
+   plt.show()
+
 
 
 
