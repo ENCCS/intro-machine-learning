@@ -488,3 +488,15 @@ We visualize the Decision Tree structure to understand how penguins are classifi
 .. figure:: img/4-decision-tree-structure.png
    :align: center
    :width: 640px
+
+
+
+Random Forest
+^^^^^^^^^^^^^
+
+While decision trees are easy to interpret and visualize, they come with some notable drawbacks. One of the primary issues is their tendency to overfit the training data, especially when the tree is allowed to grow deep without constraints like maximum depth or minimum samples per split. This leads to a model that captures noise in the training data, leading to poor generalization on unseen data, such as misclassifying a Gentoo penguin as Chinstrap due to overly specific splits. Additionally, decision trees are sensitive to small variations in the data -- a slight change (*e.g.*, a few noisy measurements) in the dataset can result in a significantly different tree structure, reducing model stability and reliability.
+
+To address these limitations, we can use an ensemble learning technique called **Random Forest**. A random forest builds upon the idea of decision trees by creating a large collection of them, each trained on a randomly selected subset of the data and features to produce a more accurate and stable prediction. By averaging the predictions of many trees (through majority voting for classification), random forest reduces overfitting, improves generalization, and mitigates the instability of individual 
+
+
+
