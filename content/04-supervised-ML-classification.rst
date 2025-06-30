@@ -506,6 +506,26 @@ Below is a figure demonstrating how Random Forest improves upon a single Decisio
    
    Top row shows the classification boundaries for both models. On the left, a single Decision Tree creates rigid, rectangular decision regions that precisely follow axis-aligned splits in the training data. While this achieves a good separation of the training samples, the jagged boundaries suggest potential overfitting to noise. In contrast, the Random Forest (right) produces smoother, more nuanced decision boundaries through majority voting across 100 trees. The blended purple transition zones represent areas where individual trees disagree, demonstrating how the ensemble averages out erratic predictions from any single tree. Bottom row reveals why Random Forests are more robust by examining three constituent trees. Tree #1 prioritizes ear length for its initial split, Tree #2 begins with weight, and Tree #3 uses a completely different weight threshold.
 
+.. code-block:: python
+
+   from sklearn.ensemble import RandomForestClassifier
+
+   rf_clf = RandomForestClassifier(n_estimators=100, random_state=42)
+   rf_clf.fit(X_train_scaled, y_train)
+
+   y_pred_rf = rf_clf.predict(X_test_scaled)
+
+   score_rf = accuracy_score(y_test, y_pred_rf)
+   print("Accuracy for Random Forest:", score_rf )
+   print("\nClassification Report:\n", classification_report(y_test, y_pred_rf))
+
+   cm_rf = confusion_matrix(y_test, y_pred_rf)
+
+   plot_confusion_matrix(cm_rf, "Confusion Matrix using Random Forest algorithm", "confusion-matrix-rf.png")
+
+
+
+
 
 
 
