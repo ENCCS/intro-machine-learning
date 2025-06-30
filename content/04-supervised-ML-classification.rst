@@ -538,7 +538,11 @@ Below is the code example for plotting the feature importance using a Random For
    plt.tight_layout()
    plt.show()
 
+.. figure:: img/4-random-forest-feature-importrance.png
+   :align: center
+   :width: 640px
 
+   Illustration of feature importance for penguin classification. Features with longer bars indicate greater influence in the classification decision, meaning the Random Forest relies more heavily on these measurements to correctly identify species.
 
 
 
