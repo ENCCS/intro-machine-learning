@@ -540,10 +540,20 @@ Below is the code example for plotting the feature importance using a Random For
 
 .. figure:: img/4-random-forest-feature-importrance.png
    :align: center
-   :width: 640px
+   :width: 512px
 
    Illustration of feature importance for penguin classification. Features with longer bars indicate greater influence in the classification decision, meaning the Random Forest relies more heavily on these measurements to correctly identify species.
 
+
+
+Gradient Boosting
+^^^^^^^^^^^^^^^^^
+
+We have trained the model using Decision Tree classifier, which offers an intuitive starting point for classifying penguin species based on their physical measurements (flipper length, body mass, *etc.*). This classifier is sensitive to small fluctuations in dataset, which often leads to overfitting, especially when the tree is deep.
+
+To overcome the limitations of a single decision tree, we turned to Random Forest, which is an ensemble method that constructs multiple decision trees on different random subsets of the data and features. By averaging the predictions from each tree (in classification, taking a majority vote), random forests reduce overfitting and improve generalization. This approach balances model complexity with performance, and it offers a reliable estimate of feature importance, helping us understand which physical attributes are most influential in distinguishing penguin species.
+
+While random forests offer robustness and improved accuracy over individual trees, we can push performance further by using **Gradient Boosting**. Gradient Boosting is also an ensemble learning technique that builds a strong classifier by combining many weak learners -- typically shallow decision trees -- in a sequential manner. Unlike Random Forest, which grows multiple trees independently and in parallel using random subsets of the data. Gradient Boosting constructs trees one at a time, where each new tree is trained to correct the errors made by its predecessors.
 
 
 
