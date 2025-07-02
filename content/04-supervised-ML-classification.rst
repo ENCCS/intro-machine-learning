@@ -585,6 +585,28 @@ This progression -- from a single tree’s simplicity to random forests’ robus
 
 
 
+Multi-Layer Perceptron (Scikit-Learn)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A **Multilayer Perceptron** (MLP) is a type of artificial neural network composed of multiple layers of interconnected perceptron, or neurons, that are designed to mimic the behavior of the human brain. 
+
+Each neuron (below figure)
+
+- has one or more inputs ($x_1$, $x_2$, ...), *e.g.*, input data expressed as floating point numbers
+- most of the time, each neuron conducts 3 main operations:
+
+	- take the weighted sum of the inputs where ($w_1$, $w_2$, ...) indicate weights
+	- add an extra constant weight (*i.e.* a bias term) to this weighted sum
+	- apply an activation function
+
+- return one output value
+- one example equation to calculate the output for a neuron is $output = Activation(\sum_i (x_i * w_i) + bias)$
+
+
+4-neuron-activation-function.png
+
+
+
 
 
 
