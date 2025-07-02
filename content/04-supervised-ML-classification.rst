@@ -555,6 +555,14 @@ To overcome the limitations of a single decision tree, we turned to Random Fores
 
 While random forests offer robustness and improved accuracy over individual trees, we can push performance further by using **Gradient Boosting**. Gradient Boosting is also an ensemble learning technique that builds a strong classifier by combining many weak learners -- typically shallow decision trees -- in a sequential manner. Unlike Random Forest, which grows multiple trees independently and in parallel using random subsets of the data. Gradient Boosting constructs trees one at a time, where each new tree is trained to correct the errors made by its predecessors.
 
+.. figure:: img/4-random-forest-vs-gradient-boosting.png
+   :align: center
+   :width: 512px
+   
+   Iillustration of a `Random Forest <https://medium.com/@mrmaster907/introduction-random-forest-classification-by-example-6983d95c7b91>`_ and `Gradient Boosting <https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-021-01701-9>`_ algorithms.
+
+
+
 
 
 
