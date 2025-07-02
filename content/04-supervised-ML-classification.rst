@@ -562,6 +562,27 @@ While random forests offer robustness and improved accuracy over individual tree
    Iillustration of a `Random Forest <https://medium.com/@mrmaster907/introduction-random-forest-classification-by-example-6983d95c7b91>`_ and `Gradient Boosting <https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-021-01701-9>`_ algorithms.
 
 
+In this code example below, we apply Gradient Boosting algorithm to classify penguin species. We use ``GradientBoostingClassifier`` from scikit-learn due to its simplicity and strong baseline performance.
+
+.. code-block:: python
+
+   from sklearn.ensemble import GradientBoostingClassifier
+
+   gb_clf = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, 
+                                       max_depth=3, random_state=0)
+   gb_clf.fit(X_train_scaled, y_train)
+
+   y_pred_gb = gb_clf.predict(X_test_scaled)
+
+   score_gb = accuracy_score(y_test, y_pred_gb)
+   print("Accuracy for Gradient Boosting:", score_gb)
+   print("\nClassification Report:\n", classification_report(y_test, y_pred_gb))
+
+   cm_gb = confusion_matrix(y_test, y_pred_gb)
+   plot_confusion_matrix(cm_gb, "Confusion Matrix using Gradient Boosting algorithm", "confusion-matrix-gb.png")
+
+This progression -- from a single tree’s simplicity to random forests’ robustness and finally to gradient boosting’s precision -- mirrors the evolution of **tree-based methods** in modern ML. While random forests remain excellent for baseline performance, Gradient Boosting often achieves state-of-the-art results for structured data like ecological measurements, provided careful tuning of the learning rate and tree depth.
+
 
 
 
