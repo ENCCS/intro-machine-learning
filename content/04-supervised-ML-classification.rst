@@ -602,8 +602,10 @@ Each neuron (below figure)
 - return one output value
 - one example equation to calculate the output for a neuron is $output = Activation(\sum_i (x_i * w_i) + bias)$
 
+.. figure:: img/4-neuron-activation-function.png
+   :align: center
+   :width: 512px
 
-4-neuron-activation-function.png
 
 
 
