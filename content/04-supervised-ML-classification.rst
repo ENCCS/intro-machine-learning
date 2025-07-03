@@ -621,6 +621,7 @@ Below are representative activation functions commonly used in neural networks a
    :width: 512px
 
 
+
 A single neuron (perceptron), while capable of learning simple patterns, is limited in its ability to model complex relationships. By combining multiple neurons into layers and connecting them in a network, we create a powerful computational framework capable of approximating highly non-linear functions. In a MLP, neurons are organized into an input layer, one or more hidden layers, and an output layer. 
 
 The image below shows an example of a three-layer perceptron network having 3, 4, and 2 neurons in input, hidden and output layers. 
@@ -635,6 +636,39 @@ The image below shows an example of a three-layer perceptron network having 3, 4
 
 
 
+Here we build a three-layer perceptron for the penguins classification task using the ``MLPClassifier`` from ``sklearn.neural_network``, which provides built-in functionality for training using backpropagation and gradient descent.
 
+- this model is configured with an input layer matching the number of features (here we have four features for each penguin), a hidden layer with a specified number of neurons (*e.g.*, 16) to capture non-linear relationships, and an output layer with three nodes corresponding to penguins classes, using a ``relu`` activation function for the hidden layer neurons.
+- ``adam`` is the optimization algorithm used to update weight parameters
+- ``alpha`` is the L2 regularization term (penalty). Setting this to 0 disables regularization, meaning the model won’t penalize large weights. This may lead to overfitting if the dataset is noisy or small.
+- ``batch_size`` is the number of samples per mini-batch during training. Smaller batch sizes lead to more frequent weight updates, which can result in more fine-grained learning but may increase noise and training time.
+- ``learning_rate`` specifies the learning rate schedule. "constant" means the learning rate remains fixed throughout training. Other options like "invscaling" or "adaptive" would change the learning rate during training.
+- With a constant learning rate, the ``learning_rate_init=0.001`` is used throughout training. A smaller value means slower learning, which may require more iterations but offers more stability.
+- ``max_iter`` specifies the maximum number of training iterations (epochs).
+- ``random_state=123`` controls the random number generation for weight initialization and data shuffling, ensuring reproducible results.
+- ``n_iter_no_change=10`` indicates that if validation score does not improve for 10 consecutive iterations, training will stop early. This is a form of early stopping to prevent overfitting or unnecessary computation.
+
+.. code-block:: python
+
+   from sklearn.neural_network import MLPClassifier
+
+   mlp_clf = MLPClassifier(hidden_layer_sizes=(16), activation='relu', solver='adam',
+                     alpha=0, batch_size=8, learning_rate='constant',
+                     learning_rate_init=0.001, max_iter=1000,
+                     random_state=123, n_iter_no_change=10)
+   mlp_clf.fit(X_train_scaled, y_train)
+
+After fitting the model to the training data, we evaluate its accuracy on the test set, computing and then plotting the confusion matrix.
+
+.. code-block:: python
+
+   y_pred_mlp = mlp_clf.predict(X_test_scaled)
+
+   score_mlp = accuracy_score(y_test, y_pred_mlp)
+   print("Accuracy for MultiLayter Perceptron:", score_mlp)
+   print("\nClassification Report:\n", classification_report(y_test, y_pred_mlp))
+
+   cm_mlp = confusion_matrix(y_test, y_pred_mlp)
+   plot_confusion_matrix(cm_mlp, "Confusion Matrix using Multi-Layer Perceptron algorithm", "confusion-matrix-mlp.png")
 
 
