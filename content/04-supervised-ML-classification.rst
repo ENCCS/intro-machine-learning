@@ -592,22 +592,33 @@ A **Multilayer Perceptron** (MLP) is a type of artificial neural network compose
 
 Each neuron (below figure)
 
-- has one or more inputs ($x_1$, $x_2$, ...), *e.g.*, input data expressed as floating point numbers
+- has one or more inputs (`x_1`, `x_2`, ...), *e.g.*, input data expressed as floating point numbers
 - most of the time, each neuron conducts 3 main operations:
 
-	- take the weighted sum of the inputs where ($w_1$, $w_2$, ...) indicate weights
+	- take the weighted sum of the inputs where (`w_1`, `w_2`, ...) indicate weights
 	- add an extra constant weight (*i.e.* a bias term) to this weighted sum
 	- apply an activation function
 
 - return one output value
-- one example equation to calculate the output for a neuron is $output = Activation(\sum_i (x_i * w_i) + bias)$
+- one example equation to calculate the output for a neuron is `output = Activation(\sum_i (x_i * w_i) + bias)`.
 
 .. figure:: img/4-neuron-activation-function.png
    :align: center
    :width: 512px
 
 
+An **activation function** is a mathematical transformation, and it converts the weighted sum of the inputs to the output signal of the neuron (perceptron). It introduces non-linearity to the network, enabling it to learn complex patterns and make decisions based on the weighted sum of inputs.
 
+Below are representative activation functions commonly used in neural networks and DL models. Each function serves the crucial role of introducing non-linearities that enable neural networks to learn complex patterns and relationships in data.
+
+- The **sigmoid** function, with its characteristic S-shaped curve, maps inputs to a smooth 0-1 range, making it historically popular for binary classification tasks.
+- The hyperbolic tangent (**tanh**) function, similar to sigmoid but ranging between -1 and 1, often demonstrates stronger gradients during training.
+- The **Rectified Linear Unit** (ReLU), which outputs zero for negative inputs and the identity for positive inputs, has become the default choice for many architectures due to its computational efficiency and effectiveness at mitigating the vanishing gradient problem.
+- The linear activation function (identity function) serves as an important reference point, demonstrating what network behavior would look like without any non-linear transformation.
+
+.. figure:: img/4-activation-function.png
+   :align: center
+   :width: 512px
 
 
 
