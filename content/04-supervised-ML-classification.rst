@@ -621,5 +621,20 @@ Below are representative activation functions commonly used in neural networks a
    :width: 512px
 
 
+A single neuron (perceptron), while capable of learning simple patterns, is limited in its ability to model complex relationships. By combining multiple neurons into layers and connecting them in a network, we create a powerful computational framework capable of approximating highly non-linear functions. In a MLP, neurons are organized into an input layer, one or more hidden layers, and an output layer. 
+
+The image below shows an example of a three-layer perceptron network having 3, 4, and 2 neurons in input, hidden and output layers. 
+
+- The input layer receives raw data, such as pixel values or measurements, and passes them to hidden layers.
+- The hidden layer contains multiple neurons that process the information and progressively extract higher-level features. Each neuron in a hidden layer is connected to neurons in adjacent layers, forming a dense web of weighted connections.
+- Finally, the output layer produces the network’s predictions, whether it's a classification, regression output, or some other task.
+
+.. figure:: img/4-mlp-network.png
+   :align: center
+   :width: 512px
+
+
+
+
 
 
