@@ -767,7 +767,23 @@ We use ``dnn.summary()`` to print a concise summary of a neural network's archit
 
 .. figure:: img/4-dnn-summary.png
    :align: center
-   :width: 512px
+   :width: 640px
+
+
+Now we have designed a DNN that, in theory, should be capable of learning to classify penguins. However, before training can begin, we must specify two critical components: (1) a loss function to quantify prediction errors, (2) an optimizer to adjust the model’s weights during training
+
+- For the loss function, we select categorical cross-entropy for multi-class classification, as it penalizes incorrect probabilistic predictions. In Keras this is implemented in the ``keras.losses.CategoricalCrossentropy`` class. This loss function works well in combination with the ``softmax`` activation function we chose earlier. For more information on the available loss functions in Keras you can check the `documentation <https://www.tensorflow.org/api_docs/python/tf/keras/losses>`_.
+- The optimizer determines how efficiently the model converges to a solution. Keras gives us plenty of choices all of which have their own pros and cons, but for now let us go with the widely used ``Adam`` (adaptive momentum estimation) optimizer. Adam has a number of parameters, but the default values work well for most problems, and therefore we use it with its default parameters.
+
+We use ``model.compile()`` to combine the determined loss function and optimier together, before starting the training.
+
+.. code-block:: python
+
+   from keras.optimizers import Adam
+
+   dnn.compile(optimizer='adam', loss=keras.losses.CategoricalCrossentropy())
+
+
 
 
 
