@@ -672,3 +672,29 @@ After fitting the model to the training data, we evaluate its accuracy on the te
    plot_confusion_matrix(cm_mlp, "Confusion Matrix using Multi-Layer Perceptron algorithm", "confusion-matrix-mlp.png")
 
 
+
+Deep Neural Networks (Keras)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The MLP represents a foundational architecture in neural networks, consisting of an input layer, one or more hidden layers, and an output layer. While MLPs excel at learning complex patterns from tabular data, their shallow depth (typically 1-2 hidden layers) limits their ability to handle very high-dimensional or abstract data such as raw images, audio, or text.
+
+To address these limitations, deep neural networks (DNNs) extend the MLP framework by incorporating multiple hidden layers. These additional layers allow the model to learn highly abstract features through deep hierarchical representations: early layers might capture basic features (like edges or shapes), while deeper layers recognize complex objects or semantic patterns. This depth enables DNNs to outperform traditional MLPs in complex tasks requiring high-level feature extraction, such as computer vision and natural language processing.
+
+
+DNNs have specialized architectures designed to handle different types of data (*e.g.*, spatial, temporal, and sequential data) and tasks more effectively.
+
+- a standard feedforward deep neural network consists of stacked fully connected layers
+- **convolutional neural networks** (CNNs) are particularly well-suited for image data. They use convolutional layers to automatically extract local features like edges, textures, and shapes, significantly reducing the number of parameters and improving generalization on visual tasks.
+- **recurrent neural network** (RNN) is designed for sequential data such as time series, speech, or natural language. RNNs include loops that allow information to persist across time steps, enabling the model to learn dependencies over sequences. More advanced versions, like Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs), address the limitations of basic RNNs by managing long-term dependencies more effectively.
+- In addition to CNNs and RNNs, the **Transformer** architecture has emerged as the state-of-the-art in many language and vision tasks. Transformers rely entirely on attention mechanisms rather than recurrence or convolutions, enabling them to model global relationships in data more efficiently. This flexibility has made them the foundation of powerful models like BERT, GPT, and Vision Transformers (ViTs). These specialized deep learning architectures illustrate how tailoring the network design to the structure of the data can lead to significant performance gains and more efficient learning.
+
+
+
+
+
+
+
+
+
+
+
