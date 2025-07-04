@@ -689,7 +689,11 @@ DNNs have specialized architectures designed to handle different types of data (
 - In addition to CNNs and RNNs, the **Transformer** architecture has emerged as the state-of-the-art in many language and vision tasks. Transformers rely entirely on attention mechanisms rather than recurrence or convolutions, enabling them to model global relationships in data more efficiently. This flexibility has made them the foundation of powerful models like BERT, GPT, and Vision Transformers (ViTs). These specialized deep learning architectures illustrate how tailoring the network design to the structure of the data can lead to significant performance gains and more efficient learning.
 
 
+Here we use the Keras package to construct a small DNN and apply it to the penguins classification task, demonstrating how even a compact architecture can effectively distinguish between penguin species (Adelie, Chinstrap, and Gentoo).
 
+Since Keras is part of the TensorFlow framework, we need to install TensorFlow if it hasn't been installed already. In a Jupyter notebook, we can run the command ``!pip install tensorflow``. After installation, it’s recommended to comment out the installation command and restart the kernel to ensure the environment is properly updated before running the rest of the notebook.
+
+In this example, we do not use the categorical features "island" and "sex", so we remove them from both the training and testing datasets. We then encode the target label "species" using the ``pd.get_dummies`` method. After that, we split the data into training and testing sets and standardize the feature values to ensure consistent scaling for model training.
 
 
 
