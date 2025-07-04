@@ -712,6 +712,29 @@ In this example, we do not use the categorical features "island" and "sex", so w
    X_train_scaled = scaler.fit_transform(X_train)
    X_test_scaled = scaler.transform(X_test)
 
+When building a neural network model with Keras, there are two common approaches: using the ``Sequential()`` API in a step-by-step manner, or defining all layers at once within the ``Sequential()`` constructor.
+
+In the first approach, we start by creating an empty model using ``keras.Sequential()``, which initializes a sequential container for stacking layers in a linear fashion. Then we define each layer separately using the ``Dense`` class, specifying the number of neurons and activation functions for each layer, and finally stack all layers to a trainable model using ``keras.Model()``.
+
+.. code-block:: python
+
+   from tensorflow.keras.layers import Dense, Dropout
+
+   dnn = Sequential()
+
+   input_layer = keras.Input(shape=(X_train_scaled.shape[1],)) # 4 input features
+
+   hidden_layer1 = Dense(32, activation="relu")(input_layer)
+   #hidden_layer1 = Dropout(0.2)(hidden_layer1)
+
+   hidden_layer2 = Dense(16, activation="relu")(hidden_layer1)
+   #hidden_layer2 = Dropout(0.2)(hidden_layer2)
+
+   hidden_layer3 = Dense(8, activation="relu")(hidden_layer2)
+
+   output_layer = Dense(3, activation="softmax")(hidden_layer3) # 3 classes
+
+   dnn = keras.Model(inputs=input_layer, outputs=output_layer)
 
 
 
