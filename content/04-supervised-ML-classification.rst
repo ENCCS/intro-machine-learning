@@ -736,6 +736,24 @@ In the first approach, we start by creating an empty model using ``keras.Sequent
 
    dnn = keras.Model(inputs=input_layer, outputs=output_layer)
 
+Alternatively, we can streamline the process by defining all layers inside the ``Sequential()`` constructor. This approach creates the model and its architecture in a single, compact step, improving readability and reducing boilerplate code. It’s convenient for simple feedforward networks where the layer order is linear and straightforward.
+
+.. code-block:: python
+
+   dnn = keras.Sequential([
+      keras.Input(shape=(X_train_scaled.shape[1],)), # input: 4 input features
+
+      Dense(32, activation="relu"),
+      # combine two lines together "Dense(32, activation='relu', input_shape=(X_train_scaled.shape[1],)),"
+      # Dropout(0.2),
+
+      Dense(16, activation="relu"),
+      # Dropout(0.2),
+
+      Dense(8, activation="relu"),
+
+      Dense(3, activation="softmax") # output: 3 classes
+   ])
 
 
 
