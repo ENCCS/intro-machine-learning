@@ -756,6 +756,10 @@ Alternatively, we can streamline the process by defining all layers inside the `
    ])
 
 
+The ``keras.layers.Dropout()`` is a regularization layer in Keras used to reduce overfitting in neural networks by randomly setting a fraction of input units to zero during training. ``Dropout(0.2)`` means 20% of the outputs of a specific layer will be set to zero randomly.
 
+.. figure:: img/4-dnn-network-dropout.png
+   :align: center
+   :width: 512px
 
 
