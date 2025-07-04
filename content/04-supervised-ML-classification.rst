@@ -763,3 +763,13 @@ The ``keras.layers.Dropout()`` is a regularization layer in Keras used to reduce
    :width: 512px
 
 
+We use ``dnn.summary()`` to print a concise summary of a neural network's architecture. It provides an overview of the model's layers, their output shapes, and the number of trainable parameters, helping you debug and understand the network's structure.
+
+.. figure:: img/4-dnn-summary.png
+   :align: center
+   :width: 512px
+
+
+
+
+
