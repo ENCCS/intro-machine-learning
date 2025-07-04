@@ -695,6 +695,22 @@ Since Keras is part of the TensorFlow framework, we need to install TensorFlow i
 
 In this example, we do not use the categorical features "island" and "sex", so we remove them from both the training and testing datasets. We then encode the target label "species" using the ``pd.get_dummies`` method. After that, we split the data into training and testing sets and standardize the feature values to ensure consistent scaling for model training.
 
+.. code-block:: python
+
+   from tensorflow import keras
+   keras.utils.set_random_seed(123)
+
+   X = penguins_classification.drop(['species','island', 'sex'], axis=1)
+   y = penguins_classification['species'].astype('int')
+   y = pd.get_dummies(penguins_classification['species']).astype(np.int8)
+   y.columns = ['Adelie', 'Chinstrap', 'Gentoo']
+
+   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=123)
+   print(f"Number of examples for training is {len(X_train)} and test is {len(X_test)}")
+
+   scaler = StandardScaler()
+   X_train_scaled = scaler.fit_transform(X_train)
+   X_test_scaled = scaler.transform(X_test)
 
 
 
