@@ -783,7 +783,23 @@ We use ``model.compile()`` to combine the determined loss function and optimier 
 
    dnn.compile(optimizer='adam', loss=keras.losses.CategoricalCrossentropy())
 
+We are now ready to train the DNN model. Here we only set a different number of ``epochs``. One training epoch means that every sample in the training data has been shown to the neural network and used to update its parameters. During training, we set ``batch_size=16`` to balance memory efficiency and gradient stability, while ``verbose=1`` enables progress bars to monitor each epoch’s loss and metrics in real-time.
 
+.. code-block:: python
+
+   history = dnn.fit(X_train_scaled, y_train, batch_size=16, epochs=100, verbose=1)
+
+
+The ``fit`` method returns a history object that has a history attribute with the training loss and potentially other metrics per training epoch. It can be very insightful to plot the training loss to see how the training progresses. Using seaborn we can do this as follows:
+
+.. code-block:: python
+
+   sns.lineplot(x=history.epoch, y=history.history['loss'], c="tab:orange", label='Training Loss')
+
+
+.. figure:: img/4-dnn-loss.png
+   :align: center
+   :width: 420px
 
 
 
