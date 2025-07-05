@@ -802,6 +802,25 @@ The ``fit`` method returns a history object that has a history attribute with th
    :width: 420px
 
 
+Finally we evaluate its accuracy on the test set, computing and then plotting the confusion matrix.
+
+.. code-block:: python
+
+   # predict class probabilities
+   y_pred_dnn_probs = dnn.predict(X_test_scaled)
+
+   # convert probabilities to class labels
+   y_pred_dnn = np.argmax(y_pred_dnn_probs, axis=1)
+   y_true = np.argmax(y_test, axis=1)
+
+   score_dnn = accuracy_score(y_true, y_pred_dnn)
+   print("Accuracy for Deep Neutron Network:", score_dnn)
+   print("\nClassification Report:\n", classification_report(y_true, y_pred_dnn))
+
+
+   cm_dnn = confusion_matrix(y_true, y_pred_dnn)
+   plot_confusion_matrix(cm_dnn, "Confusion Matrix using DNN algorithm", "confusion-matrix-dnn.png")
+
 
 
 
