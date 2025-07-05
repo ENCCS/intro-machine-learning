@@ -32,6 +32,7 @@ By the end of the course, the participants will understand how the ML models are
 02-fundamentals-of-ML
 03-scientific-data-for-ML
 04-supervised-ML-classification
+05-supervised-ML-regression
 ```
 
 
