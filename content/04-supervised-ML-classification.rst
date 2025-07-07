@@ -844,6 +844,30 @@ Finally we evaluate its accuracy on the test set, computing and then plotting th
 
 
 
+Comparison of Trained Models
+----------------------------
+
+To evaluate the performance of different ML algorithms in classifying penguin species, we compared their accuracy scores and confusion matrices. The algorithms tested include instance-based algorithm (KNN), probability-based algorithms (Logistic Regression and Naive Bayes), SVM, tree-based methods (Decision Tree, Random Forest, and Gradient Boosting), and network-based models (Multi-Layer Perceptron and Deep Neural Networks). Each model was trained on the same training set and evaluated on a common test set, with consistent preprocessing applied across all methods.
 
 
+For the current settings for the training:
+
+- the Multi-Layer Perceptron algorithm achieved the highest accuracy, demonstrating their effectiveness in capturing complex patterns and feature interactions in the Penguins dataset;
+- the Naive Bayes algorithm showed slightly lower accuracy, likely due to its strong independence assumption between features, which doesn't fully hold in the dataset;
+- the other algorithms provided moderate performance.
+
+.. figure:: img/4-scores-for-all-models.png
+   :align: center
+   :width: 640px
+
+
+The confusion matrices provided consistent and deeper insights into how each model handled class-level predictions:
+
+- the Multi-Layer Perceptron algorithm showed well-balanced performance across all three penguin species;
+- the Naive Bayes algorithm, in contrast, confused Adelie and Chinstrap penguins, which can be attributed to overlapping feature distributions between these species;
+- the other algorithms made limited number of misclassified instances (mainly between Adelie and Chinstrap).
+
+.. figure:: img/4-compare-confusion-matrices.png
+   :align: center
+   :width: 512px
 
