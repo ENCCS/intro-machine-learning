@@ -299,15 +299,14 @@ We compute the confusion matrix from the trined model using the KNN algorithm, a
    :align: center
    :width: 420px
 
-   The first row: there are 44 Adelie pengunis in the test data, with 43 identified as Adelie (valid), and 1 identified as Chinstrap (invalid). The second row: there are 20 Chinstrap pengunis in the test data, with all these penguins are identified as Chinstrap (valid). The third row: there are 36 Gentoo penguins in the test data, and all these penguins are identified as Gentoo (valid).
+   The first row: there are 28 Adelie penguins in the test data, and all these penguins are identified as Adelie (valid). The second row: there are 20 Chinstrap pengunis in the test data, with 2 identified as Adelie (invalid), and 18 identified as Chinstrap (valid). The third row: there are 19 Gentoo penguins in the test data, and all these penguins are identified as Gentoo (valid).
 
 
 
 Logistic Regression
 ^^^^^^^^^^^^^^^^^^^
 
-**Logistic Regression** is a fundamental classification algorithm to predict categorical outcomes.
-Despite its name, logistic regression is not a regression algorithm but a classification method that predicts the probability of an instance belonging to a particular class.
+**Logistic Regression** is a fundamental classification algorithm to predict categorical outcomes. Despite its name, logistic regression is not a regression algorithm but a classification method that predicts the probability of an instance belonging to a particular class.
 
 For binary classification, it uses the logistic (**sigmoid**) function to map a linear combination of input features to a probability between 0 and 1, which is then thresholded (typically at 0.5) to assign a class.
 
@@ -316,7 +315,7 @@ For a multiclass classification, logistic regression can be extended using strat
 - in OvR, a separate binary classifier is trained for each species against all others.
 - **softmax regression** generalizes the logistic function to compute probabilities across all classes simultaneously, selecting the class with the highest probability.
 
-.. figure:: img/logistic-regression-example.png
+.. figure:: img/4-logistic-regression-example.png
    :align: center
    :width: 640px
 
@@ -329,10 +328,10 @@ The creation of a Logistic Regression model and the process of fitting it to the
 
    from sklearn.linear_model import LogisticRegression
 
-   lr_clf = LogisticRegression(random_state = 12345)
-   lr_clf.fit(X_train_scaled, y_train)
+   lr_model = LogisticRegression(random_state = 123)
+   lr_model.fit(X_train_scaled, y_train)
 
-   y_pred_lr = lr_clf.predict(X_test_scaled)
+   y_pred_lr = lr_model.predict(X_test_scaled)
 
    score_lr = accuracy_score(y_test, y_pred_lr)
    print("Accuracy for Logistic Regression:", score_lr )
@@ -341,7 +340,7 @@ The creation of a Logistic Regression model and the process of fitting it to the
    cm_lr = confusion_matrix(y_test, y_pred_lr)
    plot_confusion_matrix(cm_lr, "Confusion Matrix using Logistic Regression algorithm", "confusion-matrix-lr.png")
 
-.. figure:: img/confusion-matrix-lr.png
+.. figure:: img/4-confusion-matrix-lr.png
    :align: center
    :width: 420px
 
