@@ -370,10 +370,10 @@ While Naive Bayes may not outperform more complex models like Random Forests, it
 
    from sklearn.naive_bayes import GaussianNB
 
-   nb_clf = GaussianNB()
-   nb_clf.fit(X_train_scaled, y_train)
+   nb_model = GaussianNB()
+   nb_model.fit(X_train_scaled, y_train)
 
-   y_pred_nb = nb_clf.predict(X_test_scaled)
+   y_pred_nb = nb_model.predict(X_test_scaled)
 
    score_nb = accuracy_score(y_test, y_pred_nb)
    print("Accuracy for Naive Bayes:", score_nb)
@@ -419,10 +419,10 @@ By adjusting the hyperparameters such as ``C`` (regularization strength) and ``g
 
    from sklearn.svm import SVC
 
-   svm_clf = SVC(kernel='rbf', C=1.0, gamma='scale', random_state=0)
-   svm_clf.fit(X_train_scaled, y_train)
+   svm_model = SVC(kernel='rbf', C=1.0, gamma='scale', random_state=123)
+   svm_model.fit(X_train_scaled, y_train)
 
-   y_pred_svm = svm_clf.predict(X_test_scaled)
+   y_pred_svm = svm_model.predict(X_test_scaled)
 
    score_svm = accuracy_score(y_test, y_pred_svm)
    print("Accuracy for Support Vector Machine:", score_svm)
@@ -430,6 +430,11 @@ By adjusting the hyperparameters such as ``C`` (regularization strength) and ``g
 
    cm_svm = confusion_matrix(y_test, y_pred_svm)
    plot_confusion_matrix(cm_svm, "Confusion Matrix using Support Vector Machine algorithm", "confusion-matrix-svm.png")
+
+
+.. figure:: img/4-confusion-matrix-svm.png
+   :align: center
+   :width: 420px
 
 
 
