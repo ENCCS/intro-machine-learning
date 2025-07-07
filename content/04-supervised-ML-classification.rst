@@ -458,10 +458,10 @@ The code example for the Decision Tree classifier is provided below.
 
    from sklearn.tree import DecisionTreeClassifier
 
-   dt_clf = DecisionTreeClassifier(max_depth=3, random_state = 0)
-   dt_clf.fit(X_train_scaled, y_train)
+   dt_model = DecisionTreeClassifier(max_depth=3, random_state = 123)
+   dt_model.fit(X_train_scaled, y_train)
 
-   y_pred_dt = dt_clf.predict(X_test_scaled)
+   y_pred_dt = dt_model.predict(X_test_scaled)
 
    score_dt = accuracy_score(y_test, y_pred_dt)
    print("Accuracy for Decision Tree:", score_dt )
@@ -471,6 +471,11 @@ The code example for the Decision Tree classifier is provided below.
    plot_confusion_matrix(cm_dt, "Confusion Matrix using Decision Tree algorithm", "confusion-matrix-dt.png")
 
 
+.. figure:: img/4-confusion-matrix-dt.png
+   :align: center
+   :width: 420px
+
+
 We visualize the Decision Tree structure to understand how penguins are classified based on their physical characteristics.
 
 .. code-block:: python
@@ -478,9 +483,9 @@ We visualize the Decision Tree structure to understand how penguins are classifi
    from sklearn.tree import plot_tree
 
    plt.figure(figsize=(16, 6))
-   plot_tree(dt_clf, feature_names=X.columns, filled=True, rounded=True, fontsize=10)
+   plot_tree(dt_model, feature_names=X.columns, filled=True, rounded=True, fontsize=10)
 
-   plt.title("Decision Tree Structure for Penguins Species Classification", fontsize=18)
+   plt.title("Decision Tree Structure for Penguins Species Classification", fontsize=16)
 
 .. figure:: img/4-decision-tree-structure.png
    :align: center
@@ -507,10 +512,10 @@ Below is a figure demonstrating how Random Forest improves upon a single Decisio
 
    from sklearn.ensemble import RandomForestClassifier
 
-   rf_clf = RandomForestClassifier(n_estimators=100, random_state=42)
-   rf_clf.fit(X_train_scaled, y_train)
+   rf_model = RandomForestClassifier(n_estimators=100, random_state=123)
+   rf_model.fit(X_train_scaled, y_train)
 
-   y_pred_rf = rf_clf.predict(X_test_scaled)
+   y_pred_rf = rf_model.predict(X_test_scaled)
 
    score_rf = accuracy_score(y_test, y_pred_rf)
    print("Accuracy for Random Forest:", score_rf )
@@ -518,6 +523,12 @@ Below is a figure demonstrating how Random Forest improves upon a single Decisio
 
    cm_rf = confusion_matrix(y_test, y_pred_rf)
    plot_confusion_matrix(cm_rf, "Confusion Matrix using Random Forest algorithm", "confusion-matrix-rf.png")
+
+
+.. figure:: img/4-confusion-matrix-rf.png
+   :align: center
+   :width: 420px
+
 
 In addition to the confusion matrix, feature importance in a Random Forest (and also in Decision Tree) model provides valuable insight into which input features contribute most to the model's predictions. Random Forest calculates feature importance by evaluating how much each feature decreases impurity -- such as Gini impurity or entropy -- when it is used to split the data across all decision trees in the forest. The higher the total impurity reduction attributed to a feature, the more important it is considered. These importance scores are then normalized to provide a relative ranking, helping identify which features are most influential in determining the output class. This information is especially useful for interpreting model behavior, selecting meaningful features, and understanding the underlying structure of the data.
 
@@ -565,11 +576,11 @@ In this code example below, we apply Gradient Boosting algorithm to classify pen
 
    from sklearn.ensemble import GradientBoostingClassifier
 
-   gb_clf = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, 
-                                       max_depth=3, random_state=0)
-   gb_clf.fit(X_train_scaled, y_train)
+   gb_model = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, 
+                                       max_depth=3, random_state=123)
+   gb__model.fit(X_train_scaled, y_train)
 
-   y_pred_gb = gb_clf.predict(X_test_scaled)
+   y_pred_gb = gb__model.predict(X_test_scaled)
 
    score_gb = accuracy_score(y_test, y_pred_gb)
    print("Accuracy for Gradient Boosting:", score_gb)
@@ -577,6 +588,12 @@ In this code example below, we apply Gradient Boosting algorithm to classify pen
 
    cm_gb = confusion_matrix(y_test, y_pred_gb)
    plot_confusion_matrix(cm_gb, "Confusion Matrix using Gradient Boosting algorithm", "confusion-matrix-gb.png")
+
+
+.. figure:: img/4-confusion-matrix-gb.png
+   :align: center
+   :width: 420px
+
 
 This progression -- from a single tree’s simplicity to random forests’ robustness and finally to gradient boosting’s precision -- mirrors the evolution of **tree-based methods** in modern ML. While random forests remain excellent for baseline performance, Gradient Boosting often achieves state-of-the-art results for structured data like ecological measurements, provided careful tuning of the learning rate and tree depth.
 
