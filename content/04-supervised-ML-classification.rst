@@ -628,12 +628,11 @@ Below are representative activation functions commonly used in neural networks a
 - The **sigmoid** function, with its characteristic S-shaped curve, maps inputs to a smooth 0-1 range, making it historically popular for binary classification tasks.
 - The hyperbolic tangent (**tanh**) function, similar to sigmoid but ranging between -1 and 1, often demonstrates stronger gradients during training.
 - The **Rectified Linear Unit** (ReLU), which outputs zero for negative inputs and the identity for positive inputs, has become the default choice for many architectures due to its computational efficiency and effectiveness at mitigating the vanishing gradient problem.
-- The linear activation function (identity function) serves as an important reference point, demonstrating what network behavior would look like without any non-linear transformation.
+- The **linear** activation function (identity function) serves as an important reference point, demonstrating what network behavior would look like without any non-linear transformation.
 
 .. figure:: img/4-activation-function.png
    :align: center
-   :width: 512px
-
+   :width: 640px
 
 
 A single neuron (perceptron), while capable of learning simple patterns, is limited in its ability to model complex relationships. By combining multiple neurons into layers and connecting them in a network, we create a powerful computational framework capable of approximating highly non-linear functions. In a MLP, neurons are organized into an input layer, one or more hidden layers, and an output layer. 
@@ -666,17 +665,17 @@ Here we build a three-layer perceptron for the penguins classification task usin
 
    from sklearn.neural_network import MLPClassifier
 
-   mlp_clf = MLPClassifier(hidden_layer_sizes=(16), activation='relu', solver='adam',
+   mlp_model = MLPClassifier(hidden_layer_sizes=(16), activation='relu', solver='adam',
                      alpha=0, batch_size=8, learning_rate='constant',
                      learning_rate_init=0.001, max_iter=1000,
                      random_state=123, n_iter_no_change=10)
-   mlp_clf.fit(X_train_scaled, y_train)
+   mlp_model.fit(X_train_scaled, y_train)
 
 After fitting the model to the training data, we evaluate its accuracy on the test set, computing and then plotting the confusion matrix.
 
 .. code-block:: python
 
-   y_pred_mlp = mlp_clf.predict(X_test_scaled)
+   y_pred_mlp = mlp_model.predict(X_test_scaled)
 
    score_mlp = accuracy_score(y_test, y_pred_mlp)
    print("Accuracy for MultiLayter Perceptron:", score_mlp)
@@ -684,6 +683,13 @@ After fitting the model to the training data, we evaluate its accuracy on the te
 
    cm_mlp = confusion_matrix(y_test, y_pred_mlp)
    plot_confusion_matrix(cm_mlp, "Confusion Matrix using Multi-Layer Perceptron algorithm", "confusion-matrix-mlp.png")
+
+
+.. figure:: img/4-confusion-matrix-mlp.png
+   :align: center
+   :width: 420px
+
+
 
 
 
