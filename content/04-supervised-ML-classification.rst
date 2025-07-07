@@ -691,8 +691,6 @@ After fitting the model to the training data, we evaluate its accuracy on the te
 
 
 
-
-
 Deep Neural Networks (Keras)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -718,7 +716,6 @@ In this example, we do not use the categorical features "island" and "sex", so w
 .. code-block:: python
 
    from tensorflow import keras
-   keras.utils.set_random_seed(123)
 
    X = penguins_classification.drop(['species','island', 'sex'], axis=1)
    y = penguins_classification['species'].astype('int')
@@ -740,35 +737,35 @@ In the first approach, we start by creating an empty model using ``keras.Sequent
 
    from tensorflow.keras.layers import Dense, Dropout
 
-   dnn = Sequential()
+   dnn_model = Sequential()
 
    input_layer = keras.Input(shape=(X_train_scaled.shape[1],)) # 4 input features
 
    hidden_layer1 = Dense(32, activation="relu")(input_layer)
-   #hidden_layer1 = Dropout(0.2)(hidden_layer1)
+   hidden_layer1 = Dropout(0.2)(hidden_layer1)
 
    hidden_layer2 = Dense(16, activation="relu")(hidden_layer1)
-   #hidden_layer2 = Dropout(0.2)(hidden_layer2)
+   #hidden_layer2 = Dropout(0.0)(hidden_layer2)
 
    hidden_layer3 = Dense(8, activation="relu")(hidden_layer2)
 
    output_layer = Dense(3, activation="softmax")(hidden_layer3) # 3 classes
 
-   dnn = keras.Model(inputs=input_layer, outputs=output_layer)
+   dnn_model = keras.Model(inputs=input_layer, outputs=output_layer)
 
 Alternatively, we can streamline the process by defining all layers inside the ``Sequential()`` constructor. This approach creates the model and its architecture in a single, compact step, improving readability and reducing boilerplate code. It’s convenient for simple feedforward networks where the layer order is linear and straightforward.
 
 .. code-block:: python
 
-   dnn = keras.Sequential([
+   dnn_model = keras.Sequential([
       keras.Input(shape=(X_train_scaled.shape[1],)), # input: 4 input features
 
       Dense(32, activation="relu"),
       # combine two lines together "Dense(32, activation='relu', input_shape=(X_train_scaled.shape[1],)),"
-      # Dropout(0.2),
+      Dropout(0.2),
 
       Dense(16, activation="relu"),
-      # Dropout(0.2),
+      # Dropout(0.0),
 
       Dense(8, activation="relu"),
 
@@ -783,7 +780,7 @@ The ``keras.layers.Dropout()`` is a regularization layer in Keras used to reduce
    :width: 512px
 
 
-We use ``dnn.summary()`` to print a concise summary of a neural network's architecture. It provides an overview of the model's layers, their output shapes, and the number of trainable parameters, helping you debug and understand the network's structure.
+We use ``dnn_model.summary()`` to print a concise summary of a neural network's architecture. It provides an overview of the model's layers, their output shapes, and the number of trainable parameters, helping you debug and understand the network's structure.
 
 .. figure:: img/4-dnn-summary.png
    :align: center
@@ -801,13 +798,13 @@ We use ``model.compile()`` to combine the determined loss function and optimier 
 
    from keras.optimizers import Adam
 
-   dnn.compile(optimizer='adam', loss=keras.losses.CategoricalCrossentropy())
+   dnn_model.compile(optimizer='adam', loss=keras.losses.CategoricalCrossentropy())
 
 We are now ready to train the DNN model. Here we only set a different number of ``epochs``. One training epoch means that every sample in the training data has been shown to the neural network and used to update its parameters. During training, we set ``batch_size=16`` to balance memory efficiency and gradient stability, while ``verbose=1`` enables progress bars to monitor each epoch’s loss and metrics in real-time.
 
 .. code-block:: python
 
-   history = dnn.fit(X_train_scaled, y_train, batch_size=16, epochs=100, verbose=1)
+   history = dnn_model.fit(X_train_scaled, y_train, batch_size=16, epochs=100, verbose=1)
 
 
 The ``fit`` method returns a history object that has a history attribute with the training loss and potentially other metrics per training epoch. It can be very insightful to plot the training loss to see how the training progresses. Using seaborn we can do this as follows:
@@ -819,7 +816,7 @@ The ``fit`` method returns a history object that has a history attribute with th
 
 .. figure:: img/4-dnn-loss.png
    :align: center
-   :width: 420px
+   :width: 512px
 
 
 Finally we evaluate its accuracy on the test set, computing and then plotting the confusion matrix.
@@ -827,7 +824,7 @@ Finally we evaluate its accuracy on the test set, computing and then plotting th
 .. code-block:: python
 
    # predict class probabilities
-   y_pred_dnn_probs = dnn.predict(X_test_scaled)
+   y_pred_dnn_probs = dnn_model.predict(X_test_scaled)
 
    # convert probabilities to class labels
    y_pred_dnn = np.argmax(y_pred_dnn_probs, axis=1)
@@ -837,9 +834,15 @@ Finally we evaluate its accuracy on the test set, computing and then plotting th
    print("Accuracy for Deep Neutron Network:", score_dnn)
    print("\nClassification Report:\n", classification_report(y_true, y_pred_dnn))
 
-
    cm_dnn = confusion_matrix(y_true, y_pred_dnn)
    plot_confusion_matrix(cm_dnn, "Confusion Matrix using DNN algorithm", "confusion-matrix-dnn.png")
+
+
+.. figure:: img/4-confusion-matrix-dnn.png
+   :align: center
+   :width: 420px
+
+
 
 
 
