@@ -16,18 +16,17 @@ Supervised Learning (I): Classification
    - 40 min exercises
 
 
-Classification is a supervised ML task where the model predicts discrete class labels based on input features. 
-It involves training a model on labeled data so that it can assign new data to predefined categories or classes based on patterns learned from labeled training data.
+Classification is a supervised ML task where the model predicts discrete class labels based on input features. It involves training a model on labeled data so that it can assign new data to predefined categories or classes based on patterns learned from labeled training data.
 
 In binary classification, models predict one of two classes, such as spam or not spam for emails. Multiclass classification extends this to multiple categories, like classifying images as cats, dogs, or birds.
 
-Common algorithms for classification task include k-Nearest Neighbors (k-NN), logistic Regression, decision tree, random forest, naive Bayes, support vector machine (SVM), gradient boosting, and neural networks.
+Common algorithms for classification task include k-Nearest Neighbors (KNN), Logistic Regression, Naive Bayes, Support Vector Machine (SVM), Decision Tree, Random Forest, Gradient Boosting, and Neural Networks.
 
 In this episode we will perform supervised classification tasks to categorize penguins into three species -- Adelie, Chinstrap, and Gentoo -- based on their physical measurements (flipper length, body mass, *etc.*). We will build and train multiple classifier models as mentioned above. Each model will be evaluated using appropriate performance metrics like accuracy, precision, recall, and F1 score. By comparing the results across models, we aim to identify which classifier model provides the most accurate and reliable classification for this task.
 
-.. figure:: img/penguins-categories.png
+.. figure:: img/4-penguins-categories.png
    :align: center
-   :width: 512px
+   :width: 640px
 
    The Palmer Penguins data were collected from 2007-2009 by Dr. Kristen Gorman with the `Palmer Station Long Term Ecological Research Program <https://lternet.edu/site/palmer-antarctica-lter/>`_, part of the `US Long Term Ecological Research Network <https://lternet.edu/>`_. The data were imported directly from the `Environmental Data Initiative (EDI) <https://edirepository.org/>`_ Data Portal, and are available for use by CC0 license (“No Rights Reserved”) in accordance with the `Palmer Station Data Policy <https://lternet.edu/data-access-policy/>`_.
 
@@ -79,15 +78,14 @@ There are seven columns include:
 
 Looking at numbers from ``penguins`` and ``penguins.describe()`` usually does not give a very good intuition about the data we are working with, we have the preference to visualize the data.
 
-One nice visualization for datasets with relatively few attributes is the Pair Plot, which can be created using ``sns.pairplot(...)``.
-It shows a scatterplot of each attribute plotted against each of the other attributes.
-By using the ``hue='species'`` setting for the pairplot the graphs on the diagonal are layered kernel density estimate plots for the different values of the ``species`` column.
+One nice visualization for datasets with relatively few attributes is the Pair Plot, which can be created using ``sns.pairplot(...)``. It shows a scatterplot of each attribute plotted against each of the other attributes. By using the ``hue='species'`` setting for the pairplot the graphs on the diagonal are layered kernel density estimate plots for the different values of the ``species`` column.
 
 .. code-block:: python
 
    sns.pairplot(penguins_classification[["species", "bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g"]], hue="species", height=2.0)
 
-.. figure:: img/penguins-pairplot.png
+
+.. figure:: img/4-penguins-pairplot.png
    :align: center
    :width: 640px
 
@@ -152,7 +150,7 @@ Then we apply the same rule to encode the island and sex columns. Although these
    # encode "island" column with 0=Biscoe, 1=Dream and 2=Torgersen
    penguins_classification.loc[:, 'island'] = encoder.fit_transform(penguins_classification['island'])
 
-   # encode "sex" column 0=Female and 1=Male
+   # encode "sex" with column 0=Female and 1=Male
    penguins_classification.loc[:, 'sex'] = encoder.fit_transform(penguins_classification['sex'])
 
 
@@ -211,15 +209,14 @@ Training Model & Evaluating Model Performance
 ---------------------------------------------
 
 
-After preparing the Penguins dataset by handling missing values, encoding categorical variables, and splitting it into features-labels and training-test datasets, the next step is to apply classification algorithms including k-Nearest Neighbors (KNN), Decision Trees, Random Forests, Naive Bayes, and Neural Networks to predict penguin species based on their physical measurements
-Each algorithm offers a unique approach to pattern recognition and generalization, and applying them to the same prepared dataset allows for a fair comparison of their predictive performance.
+After preparing the Penguins dataset by handling missing values, encoding categorical variables, and splitting it into features-labels and training-test datasets, the next step is to apply classification algorithms including k-Nearest Neighbors (KNN), Naive Bayes, Decision Trees, Random Forests, and Neural Networks to predict penguin species based on their physical measurements. Each algorithm offers a unique approach to pattern recognition and generalization, and applying them to the same prepared dataset allows for a fair comparison of their predictive performance.
 
 Below is the generic steps for representative algorithms we will use to training a model for penguins classification:
 
-- choosing a model class and importing that model ``from sklearn.neighbors import XXXClassifier``
-- choosing the model hyperparameters by instantiating this class with desired values ``xxx_clf = XXXClassifier(<... hyperparameters ...>)``
-- training the model to the preprocessed train data by calling the ``fit()`` method of the model instance ``xxx_clf.fit(X_train_scaled, y_train)``
-- making predictions using the trained model on test data ``y_pred_xxx = xxx_clf.predict(X_test_scaled)``
+- choosing a model class and importing that model ``from sklearn.neighbors import XXX``
+- choosing the model hyperparameters by instantiating this class with desired values ``xxx_model = XXX(<... hyperparameters ...>)``
+- training the model to the preprocessed train data by calling the ``fit()`` method of the model instance ``xxx_model.fit(X_train_scaled, y_train)``
+- making predictions using the trained model on test data ``y_pred_xxx = xxx_model.predict(X_test_scaled)``
 - evaluating model’s performance using available metrics ``score_xxx = accuracy_score(y_test, y_pred_xxx)``
 - (optional) data visualization of confusion matrix and relevant data
 
@@ -227,14 +224,11 @@ Below is the generic steps for representative algorithms we will use to training
 k-Nearest Neighbors (KNN)
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One intuitive and widely-used method is the k-Nearest Neighbors (KNN) algorithm. KNN is a non-parametric, instance-based algorithm that predicts a sample's label based on the majority class of its *k* closest neighbors in training set.
+One intuitive and widely-used method is the KNN algorithm. KNN is a non-parametric, instance-based algorithm that predicts a sample's label based on the majority class of its *k* closest neighbors in training set. **KNN does not require training in the traditional sense; instead, it stores the entire dataset and performs computation during prediction time. This makes it a lazy learner but potentially expensive during inference.**
 
-KNN does not require training in the traditional sense; instead, it stores the entire dataset and performs computation during prediction time. This makes it a lazy learner but potentially expensive during inference.
+Here is an example of using the KNN algorithm to determine which class the new point belongs to. When the given query point, the KNN algorithm calculates the distance between this point and all points in the training dataset. It then selects the *k* points that are closest. The class with the most representatives among the *k* neighbors is chosen to be the prediction result for the query point. It is noted that the choice of *k* (the number of neighbors) significantly affects performance: a small *k* may be sensitive to noise, while a large *k* may smooth over important patterns.
 
-Here is an example of using the KNN algorithm to determine which class the new point belongs to. When the given query point, the KNN algorithm calculates the distance between this point and all points in the training dataset. It then selects the *k* points that are closest. The class with the most representatives among the *k* neighbors is chosen to be the prediction result for the query point.
-It is noted that the choice of *k* (the number of neighbors) significantly affects performance: a small *k* may be sensitive to noise, while a large *k* may smooth over important patterns.
-
-.. figure:: img/knn-example.png
+.. figure:: img/4-knn-example.png
    :align: center
    :width: 640px
 
@@ -245,8 +239,8 @@ Let’s create the KNN model. Here we choose 3 as the *k* value of the algorithm
 
    from sklearn.neighbors import KNeighborsClassifier
 
-   knn_clf = KNeighborsClassifier(n_neighbors=3)
-   knn_clf.fit(X_train_scaled, y_train)
+   knn_model = KNeighborsClassifier(n_neighbors=3)
+   knn_model.fit(X_train_scaled, y_train)
 
 
 After we fitting the training data, we use the trained model to predict species on the test set and evaluate its performance.
@@ -261,7 +255,7 @@ For classification tasks, metrics like accuracy, precision, recall, and the F1-s
 .. code-block:: python
 
    # predict on test data
-   y_pred_knn = knn_clf.predict(X_test_scaled)
+   y_pred_knn = knn_model.predict(X_test_scaled)
 
    # evaluate model performance
    from sklearn.metrics import classification_report, accuracy_score
@@ -272,8 +266,7 @@ For classification tasks, metrics like accuracy, precision, recall, and the F1-s
    print("\nClassification Report:\n", classification_report(y_test, y_pred_knn))
 
 
-In classification tasks, a **confusion matrix** is a valuable tool for evaluating model performance by comparing predicted labels against true labels.
-For a multiclass classification task like the penguins dataset, the confusion matrix is an **N x N** matrix, where **N** is the number of target classes (here **N=3** for three penguins species). Each cell *(i, j)* in the matrix indicates the number of instances where the true class was *i* and the model predicted class *j*. Diagonal elements represent correct predictions, while off-diagonal elements indicate misclassifications. The confusion matrix provides an easy-to-understand overview of how often the predictions match the actual labels and where the model tends to make mistakes.
+In classification tasks, a **confusion matrix** is a valuable tool for evaluating model performance by comparing predicted labels against true labels. For a multiclass classification task like the penguins dataset, the confusion matrix is an **N x N** matrix, where **N** is the number of target classes (here **N=3** for three penguins species). Each cell *(i, j)* in the matrix indicates the number of instances where the true class was *i* and the model predicted class *j*. Diagonal elements represent correct predictions, while off-diagonal elements indicate misclassifications. The confusion matrix provides an easy-to-understand overview of how often the predictions match the actual labels and where the model tends to make mistakes.
 
 Since we will plot the confusion matrix multiple times, we write a function and call this function later whenever needed, which promotes clarity and avoids redundancy. This is especially helpful as we evaluate multiple classifiers such as KNN, Decision Trees, or SVM on the penguins dataset.
 
@@ -302,11 +295,11 @@ We compute the confusion matrix from the trined model using the KNN algorithm, a
    plot_confusion_matrix(cm_knn, "Confusion Matrix using KNN algorithm", "confusion-matrix-knn.png")
 
 
-.. figure:: img/confusion-matrix-knn.png
+.. figure:: img/4-confusion-matrix-knn.png
    :align: center
    :width: 420px
 
-   The first row: there are 28 Adelie penguins in the test data, and all these penguins are identified as Adelie (valid). The second row: there are 20 Chinstrap pengunis in the test data, with 2 identified as Adelie (invalid), none are correctly recognized as Chinstrap, and 18 identified as Chinstrap (valid). The third row: there are 19 Gentoo penguins in the test data, and all these penguins are identified as Gentoo (valid).
+   The first row: there are 44 Adelie pengunis in the test data, with 43 identified as Adelie (valid), and 1 identified as Chinstrap (invalid). The second row: there are 20 Chinstrap pengunis in the test data, with all these penguins are identified as Chinstrap (valid). The third row: there are 36 Gentoo penguins in the test data, and all these penguins are identified as Gentoo (valid).
 
 
 
@@ -336,7 +329,7 @@ The creation of a Logistic Regression model and the process of fitting it to the
 
    from sklearn.linear_model import LogisticRegression
 
-   lr_clf = LogisticRegression(random_state = 0)
+   lr_clf = LogisticRegression(random_state = 12345)
    lr_clf.fit(X_train_scaled, y_train)
 
    y_pred_lr = lr_clf.predict(X_test_scaled)
