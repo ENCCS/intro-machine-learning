@@ -869,5 +869,8 @@ The confusion matrices provided consistent and deeper insights into how each mod
 
 .. figure:: img/4-compare-confusion-matrices.png
    :align: center
-   :width: 512px
+   :width: 640px
+
+
+
 
