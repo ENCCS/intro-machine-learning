@@ -24,12 +24,7 @@ While the penguins dataset is most commonly used for classification tasks, it ca
    :align: center
    :width: 640px
 
-.. figure:: img/5-penguins-bodyMass-flipperLength.png
-   :align: center
-   :width: 512px
-
-
-Depending on model construction procedures, in this episode we explore a variety of regression algorithms to predict penguin body mass based on flipper length. These models are chosen to represent different categories of machine learning approaches, from simple to more complex and flexible methods.
+Depending on model construction procedures, in this episode we explore a variety of regression algorithms to predict penguin body mass based on flipper length. These models are chosen to represent different categories of ML approaches, from simple to more complex and flexible methods.
 
 - We begin with KNN regression, which makes predictions based on the average of the closest training samples. It’s a non-parametric, instance-based model that captures local patterns in the data.
 - Next we apply linear models, such as standard Linear Regression and Regularized Regression, which assume a straight-line relationship between flipper length and body mass. These models are interpretable and efficient, making them a solid baseline for comparison.
@@ -40,6 +35,69 @@ Depending on model construction procedures, in this episode we explore a variety
 Each model’s performance is rigorously assessed using cross-validated metrics (RMSE (root mean squared error), R²), and the corresponding predictive curve reveals how well they capture the biological allometry between flipper length and body mass.
 
 This tiered approach -- from simple models like linear regression to more complex ones such as random forests and neural networks -- ensures that we balance interpretability with predictive power. By progressing through these levels of model complexity, we aim to identify the most suitable algorithm for accurately predicting penguin body mass from flipper length, while maintaining an understanding of how each model interprets the relationship between features and target.
+
+
+
+Data Preparation
+----------------
+
+From the pairplot, we can see that the relationship between body mass and flipper length is visually strong, suggesting a clear positive correlation (figure below) between these two variables. Therefore, we use this pair for the regression task, as their strong relationship makes them suitable for modeling and predicting body mass based on flipper length. By modeling this relationship, we aim to estimate body mass based on flipper length, which can be valuable in ecological studies and predictive modeling involving penguin morphology.
+
+.. figure:: img/5-penguins-bodyMass-flipperLength.png
+   :align: center
+   :width: 512px
+
+
+Following the procedures adopted in the previous episode, we begin by importing the Penguins dataset and performing data preprocessing, including handling missing values and outliers. For the regression task, categorical features are not required, so there is no need to encode them.
+
+.. code-block:: python
+
+   import numpy as np
+   import matplotlib.pyplot as plt
+   import pandas as pd
+   import seaborn as sns
+
+   penguins = sns.load_dataset('penguins')
+
+   # remove missing values
+   penguins_regression = penguins.dropna()
+
+   # check duplicate values from dataset
+   penguins_regression.duplicated().value_counts()
+
+   # calculate lower and upper limit of outlier using IQR method
+   IQR = penguins_regression["body_mass_g"].quantile(0.75) - penguins_regression["body_mass_g"].quantile(0.25)
+   lower_limit = penguins_regression["body_mass_g"].quantile(0.25) - (1.5 * IQR)
+   upper_limit = penguins_regression["body_mass_g"].quantile(0.75) + (1.5 * IQR)
+
+   print(f"Body Mass:      lower limt of IQR = {lower_limit:.2f} and upper limit of IQR = {upper_limit:.2f}")
+
+   IQR = penguins_regression["flipper_length_mm"].quantile(0.75) - penguins_regression["flipper_length_mm"].quantile(0.25)
+   lower_limit = penguins_regression["flipper_length_mm"].quantile(0.25) - (1.5 * IQR)
+   upper_limit = penguins_regression["flipper_length_mm"].quantile(0.75) + (1.5 * IQR)
+
+   print(f"Flipper Length: lower limt of IQR = {lower_limit:7.2f} and upper limit of IQR = {upper_limit:7.2f}")
+
+Next, we separate the dataset into features (flipper length) and labels (body mass), and then split it into training and testing sets. This is followed by feature scaling to standardize the data before model training.
+
+.. code-block:: python
+
+   X = penguins_regression[["flipper_length_mm"]].values
+   y = penguins_regression["body_mass_g"].values
+
+   from sklearn.model_selection import train_test_split
+   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=123)
+
+   # standardize features
+   from sklearn.preprocessing import StandardScaler
+   scaler = StandardScaler()
+   X_train_scaled = scaler.fit_transform(X_train)
+   X_test_scaled = scaler.transform(X_test)
+
+
+
+
+
 
 
 
