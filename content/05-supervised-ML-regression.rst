@@ -96,13 +96,45 @@ Next, we separate the dataset into features (flipper length) and labels (body ma
 
 
 
+Training Model & Evaluating Model Performance
+---------------------------------------------
 
 
+k-Nearest Neighbors (KNN)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We begin by applying the KNN algorithm to the penguin regression task, with a code example provided below.
+
+.. code-block:: python
+
+   from sklearn.neighbors import KNeighborsRegressor
+
+   knn_model = KNeighborsRegressor(n_neighbors=5)
+   knn_model.fit(X_train_scaled, y_train)
+
+   # predict on test data
+   y_pred_knn = knn_model.predict(X_test_scaled)
+
+   # evaluate model performance
+   from sklearn.metrics import root_mean_squared_error, r2_score
+   rmse_knn = root_mean_squared_error(y_test, y_pred_knn)
+   r2_value_knn = r2_score(y_test, y_pred_knn)
+   print(f"K-Nearest Neighbors RMSE: {rmse_knn:.2f}, R²: {r2_value_knn:.2f}")
 
 
+In order to visualize the KNN algorithm on the regression task, we plot the **predictive curve** that maps input values to predicted outputs. This curve shows how K-Nearest Neighbors responds to changes in a single feature. Since KNN is a non-parametric, instance-based method, it doesn't learn a fixed equation during training. Instead, predictions are based on averaging the target values of the k nearest training examples for any given input.
 
+The resulting predictive curve is typically piecewise-smooth, adapting to local patterns in the data, that is, the curve may bend or flatten in response to regions where data is dense or sparse.
 
+.. figure:: img/5-regression-predictive-curve-knn-5.png
+   :align: center
+   :width: 512px
 
+This makes the predictive curve an especially useful tool for understanding whether KNN is underfitting (*e.g.*, when k is large) or overfitting (*e.g.*, when k is small). By adjusting k and observing the changes in the curve’s shape, we can intuitively tune the model’s bias-variance tradeoff.
+
+.. figure:: img/5-regression-predictive-curve-knn-1357.png
+   :align: center
+   :width: 512px
 
 
 
