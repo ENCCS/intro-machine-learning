@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supervised Learning (II): Regression &mdash; Introduction to Machine Learning  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/overrides.css?v=c88db32d" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=187304be"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=35a8b989"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Quick Reference" href="../quick-reference/" />
+    <link rel="prev" title="Supervised Learning (I): Classification" href="../04-supervised-ML-classification/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Introduction to Machine Learning
+              <img src="../_static/ENCCS.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">The lesson</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01-intro-to-ML/">Introduction to Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-fundamentals-of-ML/">Fundamentals of Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-scientific-data-for-ML/">Scientific Data for Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-supervised-ML-classification/">Supervised Learning (I): Classification</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Supervised Learning (II): Regression</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-preparation">Data Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#training-model-evaluating-model-performance">Training Model &amp; Evaluating Model Performance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#k-nearest-neighbors-knn">k-Nearest Neighbors (KNN)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick-reference/">Quick Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/">Instructor’s guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://enccs.se/lessons/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://enccs.se/">ENCCS</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Introduction to Machine Learning</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Supervised Learning (II): Regression</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/ENCCS/intro-machine-learning/blob/main/content/05-supervised-ML-regression.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="supervised-learning-ii-regression">
+<h1>Supervised Learning (II): Regression<a class="headerlink" href="#supervised-learning-ii-regression" title="Link to this heading"></a></h1>
+<div class="admonition-questions questions admonition" id="questions-0">
+<p class="admonition-title">Questions</p>
+<ul class="simple">
+<li><p>why</p></li>
+</ul>
+</div>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Explain</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>40 min teaching</p></li>
+<li><p>40 min exercises</p></li>
+</ul>
+</div>
+<p>Regression is a type of supervised ML task where the goal is to predict a continuous numerical value based on input features. Unlike classification, which assigns inputs to discrete categories, regression models output real-valued predictions.</p>
+<p>While the penguins dataset is most commonly used for classification tasks, it can also be used for regression problems by selecting a continuous target variable. For example, we might be interested in predicting a penguin’s body mass based on its physical measurements like bill length, bill depth, flipper length, and other available features.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/4-penguins-pairplot.png"><img alt="../_images/4-penguins-pairplot.png" src="../_images/4-penguins-pairplot.png" style="width: 640px;" />
+</a>
+</figure>
+<p>Depending on model construction procedures, in this episode we explore a variety of regression algorithms to predict penguin body mass based on flipper length. These models are chosen to represent different categories of ML approaches, from simple to more complex and flexible methods.</p>
+<ul class="simple">
+<li><p>We begin with KNN regression, which makes predictions based on the average of the closest training samples. It’s a non-parametric, instance-based model that captures local patterns in the data.</p></li>
+<li><p>Next we apply linear models, such as standard Linear Regression and Regularized Regression, which assume a straight-line relationship between flipper length and body mass. These models are interpretable and efficient, making them a solid baseline for comparison.</p></li>
+<li><p>To address possible non-linear trends in the data, we incorporate non-linear models like Polynomial Regression with higher-degree terms and and Support Vector Regression (SVR) with RBF kernels</p></li>
+<li><p>Tree-based models, including decision trees, random forests, and gradient boosting, offer a robust alternative by recursively partitioning the feature space or building ensembles to improve accuracy and handle non-linearities effectively</p></li>
+<li><p>Finally, we explore neural networks as a universal function approximator, capable of learning intricate relationships but requiring larger datasets and computational resources.</p></li>
+</ul>
+<p>Each model’s performance is rigorously assessed using cross-validated metrics (RMSE (root mean squared error), R²), and the corresponding predictive curve reveals how well they capture the biological allometry between flipper length and body mass.</p>
+<p>This tiered approach – from simple models like linear regression to more complex ones such as random forests and neural networks – ensures that we balance interpretability with predictive power. By progressing through these levels of model complexity, we aim to identify the most suitable algorithm for accurately predicting penguin body mass from flipper length, while maintaining an understanding of how each model interprets the relationship between features and target.</p>
+<section id="data-preparation">
+<h2>Data Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading"></a></h2>
+<p>From the pairplot, we can see that the relationship between body mass and flipper length is visually strong, suggesting a clear positive correlation (figure below) between these two variables. Therefore, we use this pair for the regression task, as their strong relationship makes them suitable for modeling and predicting body mass based on flipper length. By modeling this relationship, we aim to estimate body mass based on flipper length, which can be valuable in ecological studies and predictive modeling involving penguin morphology.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/5-penguins-bodyMass-flipperLength.png"><img alt="../_images/5-penguins-bodyMass-flipperLength.png" src="../_images/5-penguins-bodyMass-flipperLength.png" style="width: 512px;" />
+</a>
+</figure>
+<p>Following the procedures adopted in the previous episode, we begin by importing the Penguins dataset and performing data preprocessing, including handling missing values and outliers. For the regression task, categorical features are not required, so there is no need to encode them.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="n">penguins</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;penguins&#39;</span><span class="p">)</span>
+
+<span class="c1"># remove missing values</span>
+<span class="n">penguins_regression</span> <span class="o">=</span> <span class="n">penguins</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># check duplicate values from dataset</span>
+<span class="n">penguins_regression</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="c1"># calculate lower and upper limit of outlier using IQR method</span>
+<span class="n">IQR</span> <span class="o">=</span> <span class="n">penguins_regression</span><span class="p">[</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="o">-</span> <span class="n">penguins_regression</span><span class="p">[</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">lower_limit</span> <span class="o">=</span> <span class="n">penguins_regression</span><span class="p">[</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span><span class="p">)</span>
+<span class="n">upper_limit</span> <span class="o">=</span> <span class="n">penguins_regression</span><span class="p">[</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Body Mass:      lower limt of IQR = </span><span class="si">{</span><span class="n">lower_limit</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> and upper limit of IQR = </span><span class="si">{</span><span class="n">upper_limit</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">IQR</span> <span class="o">=</span> <span class="n">penguins_regression</span><span class="p">[</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="o">-</span> <span class="n">penguins_regression</span><span class="p">[</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">lower_limit</span> <span class="o">=</span> <span class="n">penguins_regression</span><span class="p">[</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span><span class="p">)</span>
+<span class="n">upper_limit</span> <span class="o">=</span> <span class="n">penguins_regression</span><span class="p">[</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Flipper Length: lower limt of IQR = </span><span class="si">{</span><span class="n">lower_limit</span><span class="si">:</span><span class="s2">7.2f</span><span class="si">}</span><span class="s2"> and upper limit of IQR = </span><span class="si">{</span><span class="n">upper_limit</span><span class="si">:</span><span class="s2">7.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, we separate the dataset into features (flipper length) and labels (body mass), and then split it into training and testing sets. This is followed by feature scaling to standardize the data before model training.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">penguins_regression</span><span class="p">[[</span><span class="s2">&quot;flipper_length_mm&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">penguins_regression</span><span class="p">[</span><span class="s2">&quot;body_mass_g&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="c1"># standardize features</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="training-model-evaluating-model-performance">
+<h2>Training Model &amp; Evaluating Model Performance<a class="headerlink" href="#training-model-evaluating-model-performance" title="Link to this heading"></a></h2>
+<section id="k-nearest-neighbors-knn">
+<h3>k-Nearest Neighbors (KNN)<a class="headerlink" href="#k-nearest-neighbors-knn" title="Link to this heading"></a></h3>
+<p>We begin by applying the KNN algorithm to the penguin regression task, with a code example provided below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">KNeighborsRegressor</span>
+
+<span class="n">knn_model</span> <span class="o">=</span> <span class="n">KNeighborsRegressor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">knn_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># predict on test data</span>
+<span class="n">y_pred_knn</span> <span class="o">=</span> <span class="n">knn_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)</span>
+
+<span class="c1"># evaluate model performance</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">root_mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="n">rmse_knn</span> <span class="o">=</span> <span class="n">root_mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_knn</span><span class="p">)</span>
+<span class="n">r2_value_knn</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_knn</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;K-Nearest Neighbors RMSE: </span><span class="si">{</span><span class="n">rmse_knn</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, R²: </span><span class="si">{</span><span class="n">r2_value_knn</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In order to visualize the KNN algorithm on the regression task, we plot the <strong>predictive curve</strong> that maps input values to predicted outputs. This curve shows how K-Nearest Neighbors responds to changes in a single feature. Since KNN is a non-parametric, instance-based method, it doesn’t learn a fixed equation during training. Instead, predictions are based on averaging the target values of the k nearest training examples for any given input.</p>
+<p>The resulting predictive curve is typically piecewise-smooth, adapting to local patterns in the data, that is, the curve may bend or flatten in response to regions where data is dense or sparse.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/5-regression-predictive-curve-knn-5.png"><img alt="../_images/5-regression-predictive-curve-knn-5.png" src="../_images/5-regression-predictive-curve-knn-5.png" style="width: 512px;" />
+</a>
+</figure>
+<p>This makes the predictive curve an especially useful tool for understanding whether KNN is underfitting (<em>e.g.</em>, when k is large) or overfitting (<em>e.g.</em>, when k is small). By adjusting k and observing the changes in the curve’s shape, we can intuitively tune the model’s bias-variance tradeoff.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/5-regression-predictive-curve-knn-1357.png"><img alt="../_images/5-regression-predictive-curve-knn-1357.png" src="../_images/5-regression-predictive-curve-knn-1357.png" style="width: 512px;" />
+</a>
+</figure>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../04-supervised-ML-classification/" class="btn btn-neutral float-left" title="Supervised Learning (I): Classification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../quick-reference/" class="btn btn-neutral float-right" title="Quick Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, The contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
